@@ -7,14 +7,18 @@ public class MainMenu : MonoBehaviour
 {
     private GameObject mainMenu;
     private GameObject loading;
+    private GameObject tutorial;
+    
 
     void Start()
     {
         mainMenu = GameObject.Find("MainMenuCanvas");
         loading = GameObject.Find("LoadingCanvas");
+        tutorial = GameObject.Find("TutorialCanvas");
 
         mainMenu.GetComponent<Canvas>().enabled = true;
         loading.GetComponent<Canvas>().enabled = false;
+        tutorial.GetComponent<Canvas>().enabled = false;
     }
 
 
@@ -29,7 +33,23 @@ public class MainMenu : MonoBehaviour
     {
         loading.GetComponent<Canvas>().enabled = true;
         mainMenu.GetComponent<Canvas>().enabled = false;
+        tutorial.GetComponent<Canvas>().enabled = false;
         SceneManager.LoadScene("Demo");
+    }
+
+    public void TutorialButton()
+    {
+        loading.GetComponent<Canvas>().enabled = false;
+        mainMenu.GetComponent<Canvas>().enabled = false;
+        tutorial.GetComponent<Canvas>().enabled = true;
+    }
+
+
+    public void backToMainMenuButton()
+    {
+        loading.GetComponent<Canvas>().enabled = false;
+        mainMenu.GetComponent<Canvas>().enabled = true;
+        tutorial.GetComponent<Canvas>().enabled = false;
     }
 
     public void ExitButton()
