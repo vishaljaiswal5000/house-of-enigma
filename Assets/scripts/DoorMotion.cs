@@ -6,7 +6,7 @@ public class DoorMotion : MonoBehaviour
 {
     public Transform PlayerCamera;
     [Header("MaxDistance you can open or close the door.")]
-    public float MaxDistance = 5;
+    public float MaxDistance = 10;
 
     private bool opened = false;
     private Animator anim;
