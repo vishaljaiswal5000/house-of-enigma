@@ -13,10 +13,10 @@ public class Constants
 
 
     public const string SCENE_TUTORIAL = "Demo";
-    public const string SCENE_LEVEL1 = "Level1";
-    public const string SCENE_LEVEL2 = "Level2";
-    public const string SCENE_LEVEL3 = "Level3";
-    public const string SCENE_LEVEL4 = "Level4";
+    public const string SCENE_LEVEL1 = "Level_1";
+    public const string SCENE_LEVEL2 = "Level_2";
+    public const string SCENE_LEVEL3 = "Level_3";
+    public const string SCENE_LEVEL4 = "Level_4";
 
 
 }
