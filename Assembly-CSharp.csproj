@@ -65,6 +65,7 @@
     <Compile Include="Assets\scripts\Tweener.cs" />
     <Compile Include="Assets\scripts\MainMenu.cs" />
     <Compile Include="Assets\scripts\Tween.cs" />
+    <Compile Include="Assets\scripts\Constants.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\MagicMirror\Prefab\Readme.txt" />
