@@ -6,18 +6,18 @@ public class DoorMotion : MonoBehaviour
 {
     public Transform PlayerCamera;
     [Header("MaxDistance you can open or close the door.")]
-    public float MaxDistance = 5;
+    private float MaxDistance = 10;
 
     private bool opened = false;
     private Animator anim;
     void Update()
     {
         //This will tell if the player press F on the Keyboard. P.S. You can change the key if you want.
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             Pressed();
             //Delete if you dont want Text in the Console saying that You Press F.
-            Debug.Log("You Press F");
+            Debug.Log("You Press E");
         }
     }
 
