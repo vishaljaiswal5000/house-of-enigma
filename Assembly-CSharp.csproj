@@ -61,11 +61,11 @@
     <Compile Include="Assets\MagicMirror\Prefab\MirrorCameraScript.cs" />
     <Compile Include="Assets\MagicMirror\Demo\DemoScript.cs" />
     <Compile Include="Assets\MagicMirror\Prefab\MirrorReflectionScript.cs" />
+    <Compile Include="Assets\scripts\Constants.cs" />
     <Compile Include="Assets\scripts\PlayerMovement.cs" />
     <Compile Include="Assets\scripts\Tweener.cs" />
     <Compile Include="Assets\scripts\MainMenu.cs" />
     <Compile Include="Assets\scripts\Tween.cs" />
-    <Compile Include="Assets\scripts\Constants.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\MagicMirror\Prefab\Readme.txt" />
