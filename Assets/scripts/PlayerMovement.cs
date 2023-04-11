@@ -17,9 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private float gravity = -9.81f;
     private Vector3 velocity = Vector3.zero;
 
-        
     public CharacterController controller;
-
 
     void Update()
     {

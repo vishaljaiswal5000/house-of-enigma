@@ -47,11 +47,10 @@ public class OptionMenu : MonoBehaviour
         Application.Quit();
     }
 
-
     void ManageInput()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-        {
+        {            
             OptionButton();
         }
 
@@ -60,6 +59,7 @@ public class OptionMenu : MonoBehaviour
     public void OptionButton()
     {
         option.GetComponent<Canvas>().enabled = !option.GetComponent<Canvas>().enabled;
+        Time.timeScale = option.GetComponent<Canvas>().enabled ? 0 : 1;
     }
 
 
