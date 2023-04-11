@@ -4,78 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    //public float jumpForce = 10f;
-    //private Rigidbody rigidbody;
 
-    //void Start()
-    //{
-    //    rigidbody = GetComponent<Rigidbody>();
-    //}
-
-    //// Update is called once per frame
-    //void Update()
-    //{
-    //    float moveHorizontal = Input.GetAxis("Horizontal");
-    //    float moveVertical = Input.GetAxis("Vertical");
-
-    //    Vector3 movement = new Vector3(moveHorizontal, 0f, moveVertical);
-
-    //    transform.position += movement * Time.deltaTime * movementSpeed;
-
-    //    if (Input.GetKeyDown(KeyCode.Space))
-    //    {
-    //        GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-    //    }
-    //}
-
-    //public Animator moveAnimator;
-    //private Vector3 movement;
-    //private float movementSqrMagnitude;
-    //public Transform playerTransform;
-
-    //void Update()
-    //{
-    //    GetMovementInput();
-    //    CharacterRotation();
-    //    WalkingAnimation();
-    //    CameraRotate();
-    //}
-
-    //void GetMovementInput()
-    //{
-    //    movement.x = Input.GetAxis("Horizontal");
-    //    movement.z = Input.GetAxis("Vertical");
-    //    movement = Vector3.ClampMagnitude(movement, 1.0f);
-    //    movementSqrMagnitude = movement.sqrMagnitude;
-    //}
-
-
-    //void CharacterRotation()
-    //{
-    //    if (movement != Vector3.zero)
-    //    {
-    //        transform.rotation = Quaternion.LookRotation(movement, Vector3.up);
-    //    }
-    //}
-
-
-    //void WalkingAnimation()
-    //{
-    //    moveAnimator.SetFloat("MoveSpeed", movementSqrMagnitude);
-    //}
-
-    //void CameraRotate()
-    //{
-    //    float angle = Input.GetKey(KeyCode.J) ? -20.0f : 0.0f;
-    //    angle = Input.GetKey(KeyCode.L) ? 20.0f : angle;
-    //    Camera.main.transform.Rotate(Vector3.up, angle * Time.deltaTime, Space.World);
-    //}
-
-
-
-
-
-    public CharacterController controller;
     private float speed = 1f;
     private float runSpeed = 5f;
     public float turnSmoothTime = 0.1f;
@@ -84,7 +13,19 @@ public class PlayerMovement : MonoBehaviour
     public Animator moveAnimator;
     private float currSpeed;
 
+    private float jumpHeight = 1f;
+    private float gravity = -9.81f;
+    private Vector3 velocity = Vector3.zero;
+
+    public CharacterController controller;
+
     void Update()
+    {
+        MoveCharacter();
+    }
+
+
+    void MoveCharacter()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
@@ -110,6 +51,16 @@ public class PlayerMovement : MonoBehaviour
                 currSpeed = speed;
             }
 
+            // Add jump functionality
+            bool isGrounded = controller.isGrounded;
+            if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+            {
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+
+                velocity.y += gravity * Time.deltaTime;
+                controller.Move((velocity + (transform.forward * vertical + transform.right * horizontal).normalized * currSpeed) * Time.deltaTime);
+                JumpAnimation(direction);
+            }
             controller.Move(moveDir.normalized * currSpeed * Time.deltaTime);
         }
         WalkingAnimation(direction);
@@ -120,4 +71,8 @@ public class PlayerMovement : MonoBehaviour
         moveAnimator.SetFloat("MoveSpeed", direction.magnitude);
     }
 
+    void JumpAnimation(Vector3 direction)
+    {
+        moveAnimator.SetTrigger("Jumping");
+    }
 }
