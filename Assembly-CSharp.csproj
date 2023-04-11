@@ -116,6 +116,8 @@
     <Compile Include="Assets\scripts\Tween.cs" />
     <Compile Include="Assets\Flooded_Grounds\PostProcessing\Runtime\Models\DitheringModel.cs" />
     <Compile Include="Assets\scripts\DoorController.cs" />
+    <Compile Include="Assets\scripts\OptionMenu.cs" />
+    <Compile Include="Assets\scripts\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Flooded_Grounds\PostProcessing\Resources\Shaders\ScreenSpaceReflection.shader" />

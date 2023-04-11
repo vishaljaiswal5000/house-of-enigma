@@ -17,6 +17,7 @@ public class Constants
     public const string TAG_DOOR = "Door";
 
     // Scenes
+    public const string SCENE_MAINMENU = "MainMenu";
     public const string SCENE_TUTORIAL = "Demo";
     public const string SCENE_LEVEL1 = "Level_1";
     public const string SCENE_LEVEL2 = "Level_2";

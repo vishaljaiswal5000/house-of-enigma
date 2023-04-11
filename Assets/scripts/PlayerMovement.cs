@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public CharacterController controller;
+
     private float speed = 1f;
     private float runSpeed = 5f;
     public float turnSmoothTime = 0.1f;
@@ -17,7 +17,17 @@ public class PlayerMovement : MonoBehaviour
     private float gravity = -9.81f;
     private Vector3 velocity = Vector3.zero;
 
+        
+    public CharacterController controller;
+
+
     void Update()
+    {
+        MoveCharacter();
+    }
+
+
+    void MoveCharacter()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
@@ -43,7 +53,6 @@ public class PlayerMovement : MonoBehaviour
                 currSpeed = speed;
             }
 
-
             // Add jump functionality
             bool isGrounded = controller.isGrounded;
             if (isGrounded && Input.GetKeyDown(KeyCode.Space))
@@ -57,8 +66,6 @@ public class PlayerMovement : MonoBehaviour
             controller.Move(moveDir.normalized * currSpeed * Time.deltaTime);
         }
         WalkingAnimation(direction);
-
-
     }
 
     void WalkingAnimation(Vector3 direction)
@@ -69,7 +76,5 @@ public class PlayerMovement : MonoBehaviour
     void JumpAnimation(Vector3 direction)
     {
         moveAnimator.SetTrigger("Jumping");
-
     }
-
 }
