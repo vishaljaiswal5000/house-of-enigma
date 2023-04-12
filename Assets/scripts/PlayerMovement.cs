@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
+[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(AudioSource))]
 public class PlayerMovement : MonoBehaviour
 {
 
     private float speed = 1f;
-    private float runSpeed = 5f;
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
     public Transform cam;
@@ -19,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
     public CharacterController controller;
 
+
     void Update()
     {
         MoveCharacter();
@@ -27,8 +30,12 @@ public class PlayerMovement : MonoBehaviour
 
     void MoveCharacter()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+        //float horizontal = Input.GetAxisRaw("Horizontal");
+        //float vertical = Input.GetAxisRaw("Vertical");
+
+        float horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
+        float vertical = CrossPlatformInputManager.GetAxis("Vertical");
+
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
         if (direction.magnitude >= 0.1f)
@@ -42,14 +49,6 @@ public class PlayerMovement : MonoBehaviour
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 
-            if (Input.GetKeyDown(KeyCode.LeftShift))
-            {
-                currSpeed = runSpeed;
-            }
-            else
-            {
-                currSpeed = speed;
-            }
 
             // Add jump functionality
             bool isGrounded = controller.isGrounded;
@@ -63,16 +62,21 @@ public class PlayerMovement : MonoBehaviour
             }
             controller.Move(moveDir.normalized * currSpeed * Time.deltaTime);
         }
+
         WalkingAnimation(direction);
+
     }
 
     void WalkingAnimation(Vector3 direction)
     {
+
         moveAnimator.SetFloat("MoveSpeed", direction.magnitude);
     }
 
     void JumpAnimation(Vector3 direction)
     {
+
         moveAnimator.SetTrigger("Jumping");
     }
 }
+

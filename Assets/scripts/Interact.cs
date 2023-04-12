@@ -1,0 +1,114 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class Interact : MonoBehaviour
+{
+    public Transform PlayerCamera;
+    [Header("MaxDistance you can open or close the door.")]
+    [SerializeField] private float rayLength = 2;
+    [SerializeField] private LayerMask layerMaskInteract;
+    [SerializeField] private string excludeLayerName = null;
+
+    private DoorController rayCastObj;
+
+    [SerializeField] private KeyCode interactKey = KeyCode.E;
+    [SerializeField] private Image crosshair = null;
+    private bool isCrosshairActive;
+    private bool doOnce;
+
+    private GameObject hudCanvas, playerObj;
+    private Text inGameTutorial;
+    private string inGameTutorialMessage;
+    private void Start()
+    {
+        hudCanvas = GameObject.Find("HUDCanvas");
+        playerObj = GameObject.Find("PlayerObj");
+        hudCanvas.GetComponent<Canvas>().enabled = true;
+
+        inGameTutorial = GameObject.FindGameObjectWithTag(Constants.TAG_INGAME_TUTORIAL).GetComponent<Text>();
+        inGameTutorial.enabled = false;
+    }
+
+    private void Update()
+    {
+        RaycastHit hit;
+        Vector3 fwd = transform.TransformDirection(Vector3.forward);
+
+        int mask = 1 << LayerMask.NameToLayer(excludeLayerName) | layerMaskInteract.value;
+
+        if(Physics.Raycast(transform.position, fwd, out hit, rayLength, mask))
+        {
+            // Interact with door
+            if (hit.collider.CompareTag(Constants.TAG_DOOR))
+            {
+                inGameTutorialMessage = Constants.INGAME_TUTORIAL_INTERACT;
+                if (!doOnce)
+                {
+                    rayCastObj = hit.collider.gameObject.GetComponentInParent<DoorController>();
+                    CrosshairChange(true);
+                }
+
+                isCrosshairActive = true;
+                doOnce = true;
+
+                if (Input.GetKeyDown(interactKey))
+                {
+                    rayCastObj.PlayAnimation();
+                }
+            }
+
+            // Interact with Game clues
+            if (hit.collider.CompareTag(Constants.TAG_GAMECLUE))
+            {
+                inGameTutorialMessage = Constants.INGAME_TUTORIAL_COLLECT;
+                if (!doOnce)
+                {                    
+                    CrosshairChange(true);
+                }
+
+                isCrosshairActive = true;
+                doOnce = true;
+
+                if (Input.GetKeyDown(interactKey))
+                {
+                    // Collect Item
+                    PlayerInventory playerInventory = playerObj.GetComponent<PlayerInventory>();
+                    playerInventory.ItemCollected(hit.collider.gameObject);
+                    // remove item from scene
+                    hit.collider.gameObject.SetActive(false);
+                    
+                }
+            }
+        }
+        else
+        {
+            if (isCrosshairActive)
+            {
+                CrosshairChange(false);
+                doOnce = false;
+            }
+        }
+    }
+
+    private void CrosshairChange(bool on)
+    {
+        if(on && !doOnce)
+        {
+            inGameTutorial.text = inGameTutorialMessage;
+            inGameTutorial.enabled = true;
+            crosshair.color = Color.red;
+        }
+        else
+        {
+            crosshair.color = Color.white;
+            isCrosshairActive = false;
+            inGameTutorial.enabled = false;
+        }
+    }
+
+  
+}
+
