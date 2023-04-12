@@ -8,14 +8,15 @@ public class TimerController : MonoBehaviour
 {
     public Text timerText;
     private float startTime;
-    private float remainingTime;
+    public static float remainingTime;
     private bool isPaused;
     private bool isStarted;
+
 
     void Start()
     {
         ResetTimer();
-        Invoke("StartTimer", 1f);        
+        Invoke("StartTimer", 1f);
     }
 
     void Update()
@@ -62,7 +63,8 @@ public class TimerController : MonoBehaviour
     {
         isStarted = false;
         isPaused = false;
-        remainingTime = 5 * 60;
+        remainingTime = 5 * 60;        
+        Time.timeScale = 1;
         UpdateTimerText();
     }
 }

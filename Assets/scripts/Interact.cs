@@ -19,12 +19,13 @@ public class Interact : MonoBehaviour
     private bool isCrosshairActive;
     private bool doOnce;
 
-    private GameObject hudCanvas;
+    private GameObject hudCanvas, playerObj;
     private Text inGameTutorial;
     private string inGameTutorialMessage;
     private void Start()
     {
         hudCanvas = GameObject.Find("HUDCanvas");
+        playerObj = GameObject.Find("PlayerObj");
         hudCanvas.GetComponent<Canvas>().enabled = true;
 
         inGameTutorial = GameObject.FindGameObjectWithTag(Constants.TAG_INGAME_TUTORIAL).GetComponent<Text>();
@@ -73,7 +74,12 @@ public class Interact : MonoBehaviour
 
                 if (Input.GetKeyDown(interactKey))
                 {
-                    rayCastObj.PlayAnimation();
+                    // Collect Item
+                    PlayerInventory playerInventory = playerObj.GetComponent<PlayerInventory>();
+                    playerInventory.ItemCollected(hit.collider.gameObject);
+                    // remove item from scene
+                    hit.collider.gameObject.SetActive(false);
+                    
                 }
             }
         }
@@ -103,5 +109,6 @@ public class Interact : MonoBehaviour
         }
     }
 
+  
 }
 

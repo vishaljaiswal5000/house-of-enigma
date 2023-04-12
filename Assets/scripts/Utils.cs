@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Utils: MonoBehaviour
 {
+    public static int currentLevel;
     public static int sceneIndexFromName(string sceneName)
     {
         for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
@@ -24,6 +25,12 @@ public class Utils: MonoBehaviour
         string name = path.Substring(slash + 1);
         int dot = name.LastIndexOf('.');
         return name.Substring(0, dot);
+    }
+
+
+    public static int getCurrentLevel()
+    {
+        return currentLevel;
     }
 
 
