@@ -11,6 +11,10 @@ TagManager:
   - Level_Tutorial
   - Door
   - Walls
+  - LevelTitle
+  - LevelDescription
+  - ObjectivesTitle
+  - ObjectivesDescription
   layers:
   - Default
   - TransparentFX

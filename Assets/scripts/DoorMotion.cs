@@ -8,7 +8,7 @@ public class DoorMotion : MonoBehaviour
 {
     public Transform PlayerCamera;
     [Header("MaxDistance you can open or close the door.")]
-    [SerializeField] private float rayLength = 5;
+    [SerializeField] private float rayLength = 2;
     [SerializeField] private LayerMask layerMaskInteract;
     [SerializeField] private string excludeLayerName = null;
 
@@ -21,6 +21,18 @@ public class DoorMotion : MonoBehaviour
     private bool isCrosshairActive;
     private bool doOnce;
 
+    private GameObject hudCanvas;
+    private Text inGameTutorial;
+    private string inGameTutorialMessage;
+    private void Start()
+    {
+        hudCanvas = GameObject.Find("HUDCanvas");
+        hudCanvas.GetComponent<Canvas>().enabled = true;
+
+        inGameTutorial = GameObject.FindGameObjectWithTag(Constants.TAG_INGAME_TUTORIAL).GetComponent<Text>();
+        inGameTutorial.enabled = false;
+    }
+
     private void Update()
     {
         RaycastHit hit;
@@ -30,8 +42,10 @@ public class DoorMotion : MonoBehaviour
 
         if(Physics.Raycast(transform.position, fwd, out hit, rayLength, mask))
         {
+            // Interact with door
             if (hit.collider.CompareTag(Constants.TAG_DOOR))
             {
+                inGameTutorialMessage = Constants.INGAME_TUTORIAL_INTERACT;
                 if (!doOnce)
                 {
                     rayCastObj = hit.collider.gameObject.GetComponentInParent<DoorController>();
@@ -45,7 +59,7 @@ public class DoorMotion : MonoBehaviour
                 {
                     rayCastObj.PlayAnimation();
                 }
-            }
+            }          
         }
         else
         {
@@ -61,12 +75,15 @@ public class DoorMotion : MonoBehaviour
     {
         if(on && !doOnce)
         {
+            inGameTutorial.text = inGameTutorialMessage;
+            inGameTutorial.enabled = true;
             crosshair.color = Color.red;
         }
         else
         {
             crosshair.color = Color.white;
             isCrosshairActive = false;
+            inGameTutorial.enabled = false;
         }
     }
 
