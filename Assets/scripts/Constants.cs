@@ -20,8 +20,8 @@ public class Constants
     public const string TAG_OBJECTIVES_TITLE= "ObjectivesTitle";
     public const string TAG_OBJECTIVES_DESCRIPTION = "ObjectivesDescription";
     public const string TAG_INGAME_TUTORIAL = "InGameTutorial";
+    public const string TAG_GAMECLUE = "GameClue";
 
-    
 
     // Scenes
     public const string SCENE_MAINMENU = "MainMenu";
@@ -33,10 +33,10 @@ public class Constants
 
 
     // Level Data 0
-    public const string TITLE_LEVEL0 = "Testing Title";
-    public const string DESCRIPTION_LEVEL0 = "Some dummy text for testing description";
+    public const string TITLE_LEVEL0 = "Tutorial Level \nInvestigate Surgery Room";
+    public const string DESCRIPTION_LEVEL0 = "Find the clues in the morgue.";
     public const string OBJECTIVES_TITLE_LEVEL0 = "Items Found: 0/3";
-    public const string OBJECTIVES_DESCRIPTION_LEVEL0 = "\n1. Find item \n2. Find item \n3. Find item \n";
+    public const string OBJECTIVES_DESCRIPTION_LEVEL0 = "\n1. Get the Notebook \n2. Schedule of the surgery \n3. Collectible Vase \n";
     // Level Data 1
     public const string TITLE_LEVEL1 = "Testing Title";
     public const string DESCRIPTION_LEVEL1 = "Some dummy text for testing description";
@@ -62,5 +62,6 @@ public class Constants
 
     // In Game Tutorial - Interactables messages
         public const string INGAME_TUTORIAL_INTERACT = "Press [E] to interact";
+    public const string INGAME_TUTORIAL_COLLECT = "Press [E] to collect";
 
 }

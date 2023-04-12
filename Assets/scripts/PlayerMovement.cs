@@ -22,11 +22,6 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController controller;
 
 
-    private void Start()
-    {
-
-    }
-
     void Update()
     {
         MoveCharacter();

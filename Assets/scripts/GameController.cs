@@ -30,8 +30,8 @@ public class GameController : MonoBehaviour
         {
             case 0:
                 currentLevel = Constants.SCENE_TUTORIAL;
-                levelTitle.text = Constants.TITLE_LEVEL1;
-                levelDescription.text = Constants.DESCRIPTION_LEVEL1;
+                levelTitle.text = Constants.TITLE_LEVEL0;
+                levelDescription.text = Constants.DESCRIPTION_LEVEL0;
                 objectivesTitle.text = Constants.OBJECTIVES_TITLE_LEVEL0;
                 objectivesDescription.text = Constants.OBJECTIVES_DESCRIPTION_LEVEL0;
                 break;
