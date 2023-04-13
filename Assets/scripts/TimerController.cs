@@ -7,16 +7,16 @@ using UnityEngine.UI;
 public class TimerController : MonoBehaviour
 {
     public Text timerText;
-    private float startTime;
+    private static float startTime;
     public static float remainingTime;
-    private bool isPaused;
-    private bool isStarted;
+    private static bool isPaused;
+    private static bool isStarted;
 
 
     void Start()
     {
         ResetTimer();
-        Invoke("StartTimer", 1f);
+        //Invoke("StartTimer", 1f);
     }
 
     void Update()
@@ -40,7 +40,7 @@ public class TimerController : MonoBehaviour
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
-    public void StartTimer()
+    public static void StartTimer()
     {
         if (!isStarted)
         {
@@ -63,7 +63,8 @@ public class TimerController : MonoBehaviour
     {
         isStarted = false;
         isPaused = false;
-        remainingTime = 5 * 60;        
+        //remainingTime = 5 * 60;
+        remainingTime = 5;
         Time.timeScale = 1;
         UpdateTimerText();
     }

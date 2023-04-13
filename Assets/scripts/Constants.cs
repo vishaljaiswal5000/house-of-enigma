@@ -21,6 +21,8 @@ public class Constants
     public const string TAG_OBJECTIVES_DESCRIPTION = "ObjectivesDescription";
     public const string TAG_INGAME_TUTORIAL = "InGameTutorial";
     public const string TAG_GAMECLUE = "GameClue";
+    public const string TAG_LEVELINTRO_TITLE = "LevelIntroTitle";
+    public const string TAG_LEVELINTRO_DESCRIPTION = "LevelIntroDescription";
 
 
     // Scenes

@@ -19,15 +19,12 @@ public class Interact : MonoBehaviour
     private bool isCrosshairActive;
     private bool doOnce;
 
-    private GameObject hudCanvas, playerObj;
+    private GameObject playerObj;
     private Text inGameTutorial;
     private string inGameTutorialMessage;
     private void Start()
-    {
-        hudCanvas = GameObject.Find("HUDCanvas");
-        playerObj = GameObject.Find("PlayerObj");
-        hudCanvas.GetComponent<Canvas>().enabled = true;
-
+    {        
+        playerObj = GameObject.Find("PlayerObj");       
         inGameTutorial = GameObject.FindGameObjectWithTag(Constants.TAG_INGAME_TUTORIAL).GetComponent<Text>();
         inGameTutorial.enabled = false;
     }
