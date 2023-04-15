@@ -24,7 +24,7 @@ public class Interact : MonoBehaviour
     private string inGameTutorialMessage;
     private void Start()
     {        
-        playerObj = GameObject.Find("PlayerObj");       
+        playerObj = GameObject.Find(Constants.PLAYER_OBJECT);       
         inGameTutorial = GameObject.FindGameObjectWithTag(Constants.TAG_INGAME_TUTORIAL).GetComponent<Text>();
         inGameTutorial.enabled = false;
     }
@@ -53,7 +53,28 @@ public class Interact : MonoBehaviour
 
                 if (Input.GetKeyDown(interactKey))
                 {
-                    rayCastObj.PlayAnimation();
+                    rayCastObj.interact();
+                }
+            }
+
+            // Interact with exit door
+            if (hit.collider.CompareTag(Constants.TAG_EXITDOOR) && GameController.exitGateOpen)
+            {
+                inGameTutorialMessage = Constants.INGAME_TUTORIAL_INTERACT;
+                if (!doOnce)
+                {
+                    rayCastObj = hit.collider.gameObject.GetComponentInParent<DoorController>();
+                    CrosshairChange(true);
+                }
+
+                isCrosshairActive = true;
+                doOnce = true;
+
+                if (Input.GetKeyDown(interactKey))
+                {
+                    //rayCastObj.interact();
+                    // Exit the level
+                    GameController.levelCompleted = true;
                 }
             }
 

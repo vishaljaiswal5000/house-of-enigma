@@ -15,8 +15,7 @@ public class TimerController : MonoBehaviour
 
     void Start()
     {
-        ResetTimer();
-        //Invoke("StartTimer", 1f);
+        ResetTimer();        
     }
 
     void Update()
@@ -62,9 +61,8 @@ public class TimerController : MonoBehaviour
     public void ResetTimer()
     {
         isStarted = false;
-        isPaused = false;
-        //remainingTime = 5 * 60;
-        remainingTime = 5;
+        isPaused = false;        
+        remainingTime = Utils.getLevelTimer();
         Time.timeScale = 1;
         UpdateTimerText();
     }

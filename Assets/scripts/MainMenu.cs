@@ -12,11 +12,11 @@ public class MainMenu : MonoBehaviour
     private GameObject level;
     
     void Start()
-    {
-        mainMenu = GameObject.Find("MainMenuCanvas");
-        loading = GameObject.Find("LoadingCanvas");
-        tutorial = GameObject.Find("TutorialCanvas");
-        level = GameObject.Find("LevelSelectionCanvas");
+    {        
+        mainMenu = GameObject.Find(Constants.MAINMENU_CANVAS);
+        loading = GameObject.Find(Constants.LOADING_CANVAS);
+        tutorial = GameObject.Find(Constants.TUTORIAL_CANVAS);
+        level = GameObject.Find(Constants.LEVEL_SELECTION_CANVAS);
 
         mainMenu.GetComponent<Canvas>().enabled = true;
         loading.GetComponent<Canvas>().enabled = false;

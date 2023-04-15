@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Utils: MonoBehaviour
+public class Utils : MonoBehaviour
 {
     public static int currentLevel;
     public static int sceneIndexFromName(string sceneName)
     {
         for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
         {
-            string testedScreen = NameFromIndex(i);
-            //print("sceneIndexFromName: i: " + i + " sceneName = " + testedScreen);
+            string testedScreen = NameFromIndex(i);           
             if (testedScreen == sceneName)
                 return i;
         }
@@ -33,5 +32,32 @@ public class Utils: MonoBehaviour
         return currentLevel;
     }
 
+    public static int getLevelTimer()
+    {
 
+        int time = 0;
+        switch (getCurrentLevel())
+        {
+            case 0:               
+                time = Constants.TOTAL_TIME_LEVEL0;
+                break;
+            case 1:
+                time = Constants.TOTAL_TIME_LEVEL1;
+                break;
+            case 2:
+                time = Constants.TOTAL_TIME_LEVEL2;
+                break;
+            case 3:
+                time = Constants.TOTAL_TIME_LEVEL3;
+                break;
+            case 4:
+                time = Constants.TOTAL_TIME_LEVEL4;
+                break;
+            default:
+                time = Constants.TOTAL_TIME_LEVEL0;
+                break;
+        }
+
+        return time;
+    }
 }
