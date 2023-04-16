@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
     private GameObject hudCanvas, levelCompletedCanvas, levelFailedCanvas, levelIntroCanvas, playerObj;
     private int totalClues;
     private PlayerInventory playerInventory;
-    public bool exitGateOpen, levelCompleted;
+    public static bool exitGateOpen, levelCompleted;
     private string currentLevel;
     void Start()
     {
@@ -21,16 +21,17 @@ public class GameController : MonoBehaviour
 
     public void init()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         //update level on shared class
         Utils.currentLevel = level;
         exitGateOpen = false;
         levelCompleted = false;
-        hudCanvas = GameObject.Find("HUDCanvas");
-        playerObj = GameObject.Find("PlayerObj");
+        hudCanvas = GameObject.Find(Constants.HUD_CANVAS);
+        playerObj = GameObject.Find(Constants.PLAYER_OBJECT);
 
-        levelCompletedCanvas = GameObject.Find("LevelCompletedCanvas");
-        levelFailedCanvas = GameObject.Find("LevelFailedCanvas");
-        levelIntroCanvas = GameObject.Find("LevelIntroCanvas");
+        levelCompletedCanvas = GameObject.Find(Constants.LEVEL_COMPLETED_CANVAS);
+        levelFailedCanvas = GameObject.Find(Constants.LEVEL_FAILED_CANVAS);
+        levelIntroCanvas = GameObject.Find(Constants.LEVEL_INTRO_CANVAS);
 
         levelFailedCanvas.GetComponent<Canvas>().enabled = false;
         levelCompletedCanvas.GetComponent<Canvas>().enabled = false;
@@ -128,6 +129,7 @@ public class GameController : MonoBehaviour
     {
         if (TimerController.remainingTime == 0 && !levelCompleted)
         {
+            Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
             levelFailedCanvas.GetComponent<Canvas>().enabled = true;
         }
@@ -135,6 +137,7 @@ public class GameController : MonoBehaviour
         if (levelCompleted)
         {
             Time.timeScale = 0;
+            Cursor.lockState = CursorLockMode.None;
             levelCompletedCanvas.GetComponent<Canvas>().enabled = true;
         }
     }

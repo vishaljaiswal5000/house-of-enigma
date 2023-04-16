@@ -11,8 +11,8 @@ public class OptionMenu : MonoBehaviour
 
     void Start()
     {
-        option = GameObject.Find("OptionMenuCanvas");
-        tutorial = GameObject.Find("TutorialCanvas");
+        option = GameObject.Find(Constants.OPTION_MENU_CANVAS);
+        tutorial = GameObject.Find(Constants.TUTORIAL_CANVAS);
         option.GetComponent<Canvas>().enabled = false;
         tutorial.GetComponent<Canvas>().enabled = false;
     }
@@ -59,6 +59,7 @@ public class OptionMenu : MonoBehaviour
     public void OptionButton()
     {
         option.GetComponent<Canvas>().enabled = !option.GetComponent<Canvas>().enabled;
+        Cursor.lockState = option.GetComponent<Canvas>().enabled? CursorLockMode.None: CursorLockMode.Locked;
         Time.timeScale = option.GetComponent<Canvas>().enabled ? 0 : 1;
     }
 

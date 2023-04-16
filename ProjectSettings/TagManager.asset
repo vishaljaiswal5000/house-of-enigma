@@ -15,6 +15,12 @@ TagManager:
   - LevelDescription
   - ObjectivesTitle
   - ObjectivesDescription
+  - GameClue
+  - InGameTutorial
+  - LevelIntroDescription
+  - LevelIntroTitle
+  - ExitDoor
+  - AIPlayer
   layers:
   - Default
   - TransparentFX
@@ -23,11 +29,11 @@ TagManager:
   - Water
   - UI
   - Interactable
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Ground
+  - Wall
+  - NPC
+  - Prop
   - 
   - 
   - 
