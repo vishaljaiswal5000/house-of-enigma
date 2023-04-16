@@ -29,10 +29,11 @@ public class DoorController : MonoBehaviour
 
     public Animator openandclose;
     public bool open;
-    public Transform Player;
+    private Transform player;
 
     void Start()
     {
+        player = GameObject.Find(Constants.PLAYER_OBJECT).transform;
         open = false;
     }
 
