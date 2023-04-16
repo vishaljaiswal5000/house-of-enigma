@@ -6,8 +6,8 @@ using UnityEngine.AI;
 public class AIPlayer : MonoBehaviour
 {
 
-    public NavMeshAgent agent;
-    public Transform player;
+    private NavMeshAgent agent;
+    private Transform player;
     [SerializeField ] private LayerMask groundLayer, playerLayer;
     public float health;
 
@@ -24,6 +24,8 @@ public class AIPlayer : MonoBehaviour
     [SerializeField] float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
+    [SerializeField] private Animator moveAnimator;
+
     private void Awake()
     {
         player = GameObject.Find(Constants.PLAYER_OBJECT).transform;
@@ -32,8 +34,8 @@ public class AIPlayer : MonoBehaviour
 
     private void Update()
     {
-        //Check for sight and attack range
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, playerLayer);        
+        //Check for sight
+        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, playerLayer);
 
         if (!playerInSightRange) Patroling();
         if (playerInSightRange) ChasePlayer();
@@ -50,7 +52,10 @@ public class AIPlayer : MonoBehaviour
 
         //Walkpoint reached
         if (distanceToWalkPoint.magnitude < 1f)
+        {
             walkPointSet = false;
+            WalkingAnimation();
+        }
     }
     private void SearchWalkPoint()
     {
@@ -61,24 +66,21 @@ public class AIPlayer : MonoBehaviour
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
 
         if (Physics.Raycast(walkPoint, -transform.up, 2f, groundLayer))
+        {
             walkPointSet = true;
+            WalkingAnimation();
+        }
     }
 
     private void ChasePlayer()
     {
-        agent.SetDestination(player.position);
+        agent.SetDestination(player.position);        
     }
 
-    private void DestroyEnemy()
+    void WalkingAnimation()
     {
-        Destroy(gameObject);
+
+        moveAnimator.SetFloat("MoveSpeed", walkPoint.magnitude);
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, sightRange);
-    }
 }
