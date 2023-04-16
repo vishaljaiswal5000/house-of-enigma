@@ -37,8 +37,17 @@ public class AIPlayer : MonoBehaviour
         //Check for sight
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, playerLayer);
 
-        if (!playerInSightRange) Patroling();
-        if (playerInSightRange) ChasePlayer();
+        if (!playerInSightRange)
+        {
+            GameController.isDetected = false;
+            Patroling();
+        }
+
+        if (playerInSightRange)
+        {
+            GameController.isDetected = true;
+            ChasePlayer();
+        }
     }
 
     private void Patroling()
@@ -73,8 +82,14 @@ public class AIPlayer : MonoBehaviour
     }
 
     private void ChasePlayer()
-    {
-        agent.SetDestination(player.position);        
+    {        
+        agent.SetDestination(player.position);
+
+        float distance = Vector3.Distance(player.position, gameObject.GetComponent<Transform>().position);
+        if (distance < 1)
+        {
+            GameController.isCaught = true;
+        }
     }
 
     void WalkingAnimation()
