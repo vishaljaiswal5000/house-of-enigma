@@ -5,24 +5,71 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
-    private Animator doorAnim;
-    private bool doorOpen = false;
-    private void Awake()
+    //private Animator doorAnim;
+    //private bool doorOpen = false;
+    //private void Awake()
+    //{
+    //    doorAnim = gameObject.GetComponent<Animator>();
+    //}
+
+    //public void PlayAnimation()
+    //{
+    //    if (!doorOpen)
+    //    {            
+    //        doorAnim.SetBool("Opened", true);
+    //        doorOpen = true;
+    //    }
+    //    else
+    //    {
+    //        doorAnim.SetBool("Opened", false);
+    //        doorOpen = false;
+    //    }
+    //}
+
+
+    public Animator openandclose;
+    public bool open;
+    private Transform player;
+
+    void Start()
     {
-        doorAnim = gameObject.GetComponent<Animator>();
+        player = GameObject.Find(Constants.PLAYER_OBJECT).transform;
+        open = false;
     }
 
-    public void PlayAnimation()
+    public void interact()
     {
-        if (!doorOpen)
-        {            
-            doorAnim.SetBool("Opened", true);
-            doorOpen = true;
+        if (open == false)
+        {
+            StartCoroutine(opening());
+
         }
         else
         {
-            doorAnim.SetBool("Opened", false);
-            doorOpen = false;
+            if (open == true)
+            {
+
+                StartCoroutine(closing());
+            }
+
         }
+
     }
+
+
+
+    IEnumerator opening()
+    {
+        openandclose.Play("Opening");
+        open = true;
+        yield return new WaitForSeconds(.5f);
+    }
+
+    IEnumerator closing()
+    {
+        openandclose.Play("Closing");
+        open = false;
+        yield return new WaitForSeconds(.5f);
+    }
+
 }

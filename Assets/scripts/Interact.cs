@@ -19,15 +19,12 @@ public class Interact : MonoBehaviour
     private bool isCrosshairActive;
     private bool doOnce;
 
-    private GameObject hudCanvas, playerObj;
+    private GameObject playerObj;
     private Text inGameTutorial;
     private string inGameTutorialMessage;
     private void Start()
-    {
-        hudCanvas = GameObject.Find("HUDCanvas");
-        playerObj = GameObject.Find("PlayerObj");
-        hudCanvas.GetComponent<Canvas>().enabled = true;
-
+    {        
+        playerObj = GameObject.Find(Constants.PLAYER_OBJECT);       
         inGameTutorial = GameObject.FindGameObjectWithTag(Constants.TAG_INGAME_TUTORIAL).GetComponent<Text>();
         inGameTutorial.enabled = false;
     }
@@ -56,7 +53,28 @@ public class Interact : MonoBehaviour
 
                 if (Input.GetKeyDown(interactKey))
                 {
-                    rayCastObj.PlayAnimation();
+                    rayCastObj.interact();
+                }
+            }
+
+            // Interact with exit door
+            if (hit.collider.CompareTag(Constants.TAG_EXITDOOR) && GameController.exitGateOpen)
+            {
+                inGameTutorialMessage = Constants.INGAME_TUTORIAL_INTERACT;
+                if (!doOnce)
+                {
+                    rayCastObj = hit.collider.gameObject.GetComponentInParent<DoorController>();
+                    CrosshairChange(true);
+                }
+
+                isCrosshairActive = true;
+                doOnce = true;
+
+                if (Input.GetKeyDown(interactKey))
+                {
+                    //rayCastObj.interact();
+                    // Exit the level
+                    GameController.levelCompleted = true;
                 }
             }
 
