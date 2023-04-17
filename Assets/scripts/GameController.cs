@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
     private GameObject hudCanvas, levelCompletedCanvas, levelFailedCanvas, levelIntroCanvas, playerObj;
     private int totalClues;
     private PlayerInventory playerInventory;
-    public static bool exitGateOpen, levelCompleted;
+    public static bool exitGateOpen, levelCompleted, isDetected, isCaught;
     private string currentLevel;
     void Start()
     {
@@ -26,6 +26,8 @@ public class GameController : MonoBehaviour
         Utils.currentLevel = level;
         exitGateOpen = false;
         levelCompleted = false;
+        isDetected = false;
+        isCaught = false;
         hudCanvas = GameObject.Find(Constants.HUD_CANVAS);
         playerObj = GameObject.Find(Constants.PLAYER_OBJECT);
 
@@ -52,7 +54,6 @@ public class GameController : MonoBehaviour
 
     IEnumerator showIntro()
     {
-
         levelIntroCanvas.GetComponent<Canvas>().enabled = true;
         yield return new WaitForSeconds(5);
         hudCanvas.GetComponent<Canvas>().enabled = true;
@@ -129,17 +130,25 @@ public class GameController : MonoBehaviour
     {
         if (TimerController.remainingTime == 0 && !levelCompleted)
         {
+            // update failed message: running out of time
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
             levelFailedCanvas.GetComponent<Canvas>().enabled = true;
         }
-
-        if (levelCompleted)
+        else if (isDetected && isCaught)
+        {
+            // update failed message: Caught by other agents
+            Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0;
+            levelFailedCanvas.GetComponent<Canvas>().enabled = true;
+        }
+        else if (levelCompleted)
         {
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None;
             levelCompletedCanvas.GetComponent<Canvas>().enabled = true;
         }
+
     }
 
     public void showGameClues()
