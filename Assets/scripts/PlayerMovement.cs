@@ -50,17 +50,25 @@ public class PlayerMovement : MonoBehaviour
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 
 
-            // Add jump functionality
+            // Check if player is running
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                currSpeed = speed * 2f; // Double the speed when running
+            }
+            else
+            {
+                currSpeed = speed;
+            }
+
             bool isGrounded = controller.isGrounded;
             if (isGrounded && Input.GetKeyDown(KeyCode.Space))
             {
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-
-                velocity.y += gravity * Time.deltaTime;
-                controller.Move((velocity + (transform.forward * vertical + transform.right * horizontal).normalized * currSpeed) * Time.deltaTime);
                 JumpAnimation(direction);
             }
-            controller.Move(moveDir.normalized * currSpeed * Time.deltaTime);
+
+            velocity.y += gravity * Time.deltaTime;
+            controller.Move((velocity + (moveDir.normalized * currSpeed)) * Time.deltaTime);
         }
 
         WalkingAnimation(direction);
@@ -69,8 +77,15 @@ public class PlayerMovement : MonoBehaviour
 
     void WalkingAnimation(Vector3 direction)
     {
-
-        moveAnimator.SetFloat("MoveSpeed", direction.magnitude);
+        // Check if player is running
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            moveAnimator.SetFloat("MoveSpeed", direction.magnitude * 2f); 
+        }
+        else
+        {
+            moveAnimator.SetFloat("MoveSpeed", direction.magnitude);
+        }
     }
 
     void JumpAnimation(Vector3 direction)
