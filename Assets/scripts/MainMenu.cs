@@ -58,8 +58,8 @@ public class MainMenu : MonoBehaviour
 
     public void ExitButton()
     {
-        //Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
+        Application.Quit();
+        //UnityEditor.EditorApplication.isPlaying = false;
     }
 
     public void LevelSelection(Button button)

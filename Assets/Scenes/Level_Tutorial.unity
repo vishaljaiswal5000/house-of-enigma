@@ -30970,6 +30970,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 8594985887965853914, guid: 6a85311f110dccf448db53fb3760b7e6, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: b8a7488d12adc39498433d60811eab1a, type: 3}
+    - target: {fileID: 8594985887965853914, guid: 6a85311f110dccf448db53fb3760b7e6, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1862e5f23cacf864dae7bfa496e63d8e, type: 2}
     - target: {fileID: 8821893079335894391, guid: 6a85311f110dccf448db53fb3760b7e6, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -31024,7 +31032,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1749259251739924357, guid: 604210b50e3bf7d4d81c80009530cabb, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.056172654
+      value: 0.05617266
       objectReference: {fileID: 0}
     - target: {fileID: 1749259251853789734, guid: 604210b50e3bf7d4d81c80009530cabb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -31212,6 +31220,14 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 807045888}
     m_Modifications:
+    - target: {fileID: 805939724, guid: 74b399283b74d694a947ce30d5dd75da, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 805939725, guid: 74b399283b74d694a947ce30d5dd75da, type: 3}
+      propertyPath: walkPointRange
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3889469631958048767, guid: 74b399283b74d694a947ce30d5dd75da, type: 3}
       propertyPath: m_Name
       value: NPC
