@@ -7,8 +7,6 @@ using UnityEngine.UI;
 public class OptionMenu : MonoBehaviour
 {
     private GameObject tutorial, option;
-
-
     void Start()
     {
         option = GameObject.Find(Constants.OPTION_MENU_CANVAS);
@@ -49,7 +47,7 @@ public class OptionMenu : MonoBehaviour
 
     void ManageInput()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {            
             OptionButton();
         }
@@ -61,6 +59,14 @@ public class OptionMenu : MonoBehaviour
         option.GetComponent<Canvas>().enabled = !option.GetComponent<Canvas>().enabled;
         Cursor.lockState = option.GetComponent<Canvas>().enabled? CursorLockMode.None: CursorLockMode.Locked;
         Time.timeScale = option.GetComponent<Canvas>().enabled ? 0 : 1;
+        if (option.GetComponent<Canvas>().enabled)
+        {
+            AudioManager.instance.Pause(GameController.currentLevel);
+        }
+        else
+        {
+            AudioManager.instance.Play(GameController.currentLevel);
+        }
     }
 
 

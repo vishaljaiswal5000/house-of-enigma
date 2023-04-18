@@ -23,6 +23,7 @@ public class MainMenu : MonoBehaviour
         tutorial.GetComponent<Canvas>().enabled = false;
         level.GetComponent<Canvas>().enabled = false;
 
+        AudioManager.instance.Play(Constants.SCENE_MAINMENU);
     }
 
 
@@ -93,7 +94,9 @@ public class MainMenu : MonoBehaviour
         {
             sceneName = Constants.SCENE_LEVEL4;
         }
-        
+
+
+        AudioManager.instance.Stop(Constants.SCENE_MAINMENU);
         StartCoroutine("loadScene", Utils.sceneIndexFromName(sceneName));
     }
 
