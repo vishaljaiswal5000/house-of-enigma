@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour
     private int totalClues;
     private PlayerInventory playerInventory;
     public static bool exitGateOpen, levelCompleted, isDetected, isCaught;
-    private string currentLevel;
+    public static string currentLevel;
     void Start()
     {
         init();
@@ -28,6 +28,7 @@ public class GameController : MonoBehaviour
         levelCompleted = false;
         isDetected = false;
         isCaught = false;
+
         hudCanvas = GameObject.Find(Constants.HUD_CANVAS);
         playerObj = GameObject.Find(Constants.PLAYER_OBJECT);
 
@@ -54,6 +55,7 @@ public class GameController : MonoBehaviour
 
     IEnumerator showIntro()
     {
+        AudioManager.instance.Play(currentLevel);
         levelIntroCanvas.GetComponent<Canvas>().enabled = true;
         yield return new WaitForSeconds(5);
         hudCanvas.GetComponent<Canvas>().enabled = true;
@@ -134,6 +136,7 @@ public class GameController : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
             levelFailedCanvas.GetComponent<Canvas>().enabled = true;
+            AudioManager.instance.Stop(currentLevel);
         }
         else if (isDetected && isCaught)
         {
@@ -141,12 +144,14 @@ public class GameController : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
             levelFailedCanvas.GetComponent<Canvas>().enabled = true;
+            AudioManager.instance.Stop(currentLevel);
         }
         else if (levelCompleted)
         {
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None;
             levelCompletedCanvas.GetComponent<Canvas>().enabled = true;
+            AudioManager.instance.Stop(currentLevel);
         }
 
     }
