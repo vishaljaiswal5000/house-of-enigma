@@ -4134,26 +4134,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6969598847915619520, guid: 6c8fbc93ec16d234bbd8e5d415eee31e, type: 3}
-      propertyPath: sounds.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6969598847915619520, guid: 6c8fbc93ec16d234bbd8e5d415eee31e, type: 3}
-      propertyPath: sounds.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: da74bbde2cec4ec4c880f5df2d7fe83e, type: 3}
-    - target: {fileID: 6969598847915619520, guid: 6c8fbc93ec16d234bbd8e5d415eee31e, type: 3}
-      propertyPath: sounds.Array.data[0].name
-      value: MainMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 6969598847915619520, guid: 6c8fbc93ec16d234bbd8e5d415eee31e, type: 3}
-      propertyPath: sounds.Array.data[0].volume
-      value: 0.225
-      objectReference: {fileID: 0}
-    - target: {fileID: 6969598847915619520, guid: 6c8fbc93ec16d234bbd8e5d415eee31e, type: 3}
-      propertyPath: sounds.Array.data[0].clips.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6969598847915619522, guid: 6c8fbc93ec16d234bbd8e5d415eee31e, type: 3}
       propertyPath: m_RootOrder
       value: 8
