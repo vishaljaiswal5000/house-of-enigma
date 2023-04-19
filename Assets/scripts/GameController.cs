@@ -55,7 +55,14 @@ public class GameController : MonoBehaviour
 
     IEnumerator showIntro()
     {
-        AudioManager.instance.Play(currentLevel);
+        try
+        {
+            AudioManager.instance.Play(currentLevel);
+        }
+        catch (System.Exception ex)
+        {
+            Debug.Log(ex.Message);            
+        }
         levelIntroCanvas.GetComponent<Canvas>().enabled = true;
         yield return new WaitForSeconds(5);
         hudCanvas.GetComponent<Canvas>().enabled = true;
@@ -144,7 +151,15 @@ public class GameController : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
             levelFailedCanvas.GetComponent<Canvas>().enabled = true;
+            try
+            {
             AudioManager.instance.Stop(currentLevel);
+            }
+            catch (System.Exception ex)
+            {
+
+                Debug.Log(ex.InnerException);
+            }
         }
         else if (levelCompleted)
         {

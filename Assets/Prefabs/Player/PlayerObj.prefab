@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 326337247653237536}
   m_Layer: 0
   m_Name: CameraFocus
-  m_TagString: Untagged
+  m_TagString: PlayerFocus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
