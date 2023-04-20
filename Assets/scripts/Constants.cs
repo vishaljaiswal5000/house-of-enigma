@@ -90,10 +90,17 @@ public class Constants
     public const string LEVEL_COMPLETED_CANVAS = "LevelCompletedCanvas";
     public const string LEVEL_FAILED_CANVAS = "LevelFailedCanvas";
     public const string LEVEL_INTRO_CANVAS = "LevelIntroCanvas";
-
     public const string MAINMENU_CANVAS = "MainMenuCanvas";
     public const string LOADING_CANVAS = "LoadingCanvas";
     public const string LEVEL_SELECTION_CANVAS = "LevelSelectionCanvas";
+    public const string LEVEL_FAILED_CANVAS_MESSAGE_FIELD = "FailedMessage";
+
+    // Level Failed Messages
+
+    public const string LEVEL_FAILED_MESSAGE_CAUGHT = "You were caught by the agent";
+    public const string LEVEL_FAILED_MESSAGE_TIMEOUT = "You ran out of time";
+
+
 
 
 }

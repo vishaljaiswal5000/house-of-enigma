@@ -48,7 +48,7 @@ public class OptionMenu : MonoBehaviour
     void ManageInput()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
-        {            
+        {
             OptionButton();
         }
 
@@ -57,15 +57,31 @@ public class OptionMenu : MonoBehaviour
     public void OptionButton()
     {
         option.GetComponent<Canvas>().enabled = !option.GetComponent<Canvas>().enabled;
-        Cursor.lockState = option.GetComponent<Canvas>().enabled? CursorLockMode.None: CursorLockMode.Locked;
+        Cursor.lockState = option.GetComponent<Canvas>().enabled ? CursorLockMode.None : CursorLockMode.Locked;
         Time.timeScale = option.GetComponent<Canvas>().enabled ? 0 : 1;
         if (option.GetComponent<Canvas>().enabled)
         {
-            AudioManager.instance.Pause(GameController.currentLevel);
+            try
+            {
+                AudioManager.instance.Pause(GameController.currentLevel);
+            }
+            catch (System.Exception ex)
+            {
+
+                Debug.Log(ex.InnerException);
+            }
         }
         else
         {
-            AudioManager.instance.Play(GameController.currentLevel);
+            try
+            {
+                AudioManager.instance.Play(GameController.currentLevel);
+            }
+            catch (System.Exception ex)
+            {
+
+                Debug.Log(ex.InnerException);
+            }
         }
     }
 

@@ -16,6 +16,7 @@ public class PlayerInventory : MonoBehaviour
 
     public void ItemCollected(GameObject gameClue)
     {
+        PlayerSoundEffects.isItemCollected = true;
         gameClues.Add(gameClue);
         numberOfGameClues++;
     }

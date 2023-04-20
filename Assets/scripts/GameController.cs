@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     private Text levelTitle, levelDescription;
     private Text objectivesTitle, objectivesDescription;
     private Text levelIntroTitle, levelIntroDescription;
+    private Text levelFailedMessage;
     private GameObject hudCanvas, levelCompletedCanvas, levelFailedCanvas, levelIntroCanvas, playerObj;
     private int totalClues;
     private PlayerInventory playerInventory;
@@ -48,14 +49,23 @@ public class GameController : MonoBehaviour
         levelIntroTitle = GameObject.FindGameObjectWithTag(Constants.TAG_LEVELINTRO_TITLE).GetComponent<Text>();
         levelIntroDescription = GameObject.FindGameObjectWithTag(Constants.TAG_LEVELINTRO_DESCRIPTION).GetComponent<Text>();
         playerInventory = playerObj.GetComponent<PlayerInventory>();
-        getLevelDetails(level);
 
+        levelFailedMessage = GameObject.Find(Constants.LEVEL_FAILED_CANVAS_MESSAGE_FIELD).GetComponent<Text>();
+
+        getLevelDetails(level);
         StartCoroutine("showIntro");
     }
 
     IEnumerator showIntro()
     {
-        AudioManager.instance.Play(currentLevel);
+        try
+        {
+            AudioManager.instance.Play(currentLevel);
+        }
+        catch (System.Exception ex)
+        {
+            Debug.Log(ex.Message);
+        }
         levelIntroCanvas.GetComponent<Canvas>().enabled = true;
         yield return new WaitForSeconds(5);
         hudCanvas.GetComponent<Canvas>().enabled = true;
@@ -133,6 +143,7 @@ public class GameController : MonoBehaviour
         if (TimerController.remainingTime == 0 && !levelCompleted)
         {
             // update failed message: running out of time
+            levelFailedMessage.text = Constants.LEVEL_FAILED_MESSAGE_TIMEOUT;
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
             levelFailedCanvas.GetComponent<Canvas>().enabled = true;
@@ -141,17 +152,33 @@ public class GameController : MonoBehaviour
         else if (isDetected && isCaught)
         {
             // update failed message: Caught by other agents
+            levelFailedMessage.text = Constants.LEVEL_FAILED_MESSAGE_CAUGHT;
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
             levelFailedCanvas.GetComponent<Canvas>().enabled = true;
-            AudioManager.instance.Stop(currentLevel);
+            try
+            {
+                AudioManager.instance.Stop(currentLevel);
+            }
+            catch (System.Exception ex)
+            {
+
+                Debug.Log(ex.InnerException);
+            }
         }
         else if (levelCompleted)
         {
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None;
             levelCompletedCanvas.GetComponent<Canvas>().enabled = true;
-            AudioManager.instance.Stop(currentLevel);
+            try
+            {
+                AudioManager.instance.Stop(currentLevel);
+            }
+            catch (System.Exception ex)
+            {
+                Debug.Log(ex.InnerException);
+            }
         }
 
     }
