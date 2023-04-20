@@ -23,8 +23,8 @@ public class Interact : MonoBehaviour
     private Text inGameTutorial;
     private string inGameTutorialMessage;
     private void Start()
-    {        
-        playerObj = GameObject.Find(Constants.PLAYER_OBJECT);       
+    {
+        playerObj = GameObject.Find(Constants.PLAYER_OBJECT);
         inGameTutorial = GameObject.FindGameObjectWithTag(Constants.TAG_INGAME_TUTORIAL).GetComponent<Text>();
         inGameTutorial.enabled = false;
     }
@@ -36,7 +36,7 @@ public class Interact : MonoBehaviour
 
         int mask = 1 << LayerMask.NameToLayer(excludeLayerName) | layerMaskInteract.value;
 
-        if(Physics.Raycast(transform.position, fwd, out hit, rayLength, mask))
+        if (Physics.Raycast(transform.position, fwd, out hit, rayLength, mask))
         {
             // Interact with door
             if (hit.collider.CompareTag(Constants.TAG_DOOR))
@@ -83,8 +83,9 @@ public class Interact : MonoBehaviour
             {
                 inGameTutorialMessage = Constants.INGAME_TUTORIAL_COLLECT;
                 if (!doOnce)
-                {                    
+                {
                     CrosshairChange(true);
+                    OutlineChange(true, hit.collider.gameObject);
                 }
 
                 isCrosshairActive = true;
@@ -93,11 +94,11 @@ public class Interact : MonoBehaviour
                 if (Input.GetKeyDown(interactKey))
                 {
                     // Collect Item
-                    PlayerInventory playerInventory = playerObj.GetComponent<PlayerInventory>();                    
+                    PlayerInventory playerInventory = playerObj.GetComponent<PlayerInventory>();
                     playerInventory.ItemCollected(hit.collider.gameObject);
                     // remove item from scene
                     hit.collider.gameObject.SetActive(false);
-                    
+
                 }
             }
         }
@@ -113,7 +114,7 @@ public class Interact : MonoBehaviour
 
     private void CrosshairChange(bool on)
     {
-        if(on && !doOnce)
+        if (on && !doOnce)
         {
             inGameTutorial.text = inGameTutorialMessage;
             inGameTutorial.enabled = true;
@@ -127,6 +128,10 @@ public class Interact : MonoBehaviour
         }
     }
 
-  
+    private void OutlineChange(bool on, GameObject gameObject)
+    {
+        Outline outline = gameObject.GetComponent<Outline>();
+        outline.OutlineColor = on ? Color.yellow : Color.white;
+    }
 }
 
