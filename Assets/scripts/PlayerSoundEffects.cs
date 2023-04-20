@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FootSteps : MonoBehaviour
+public class PlayerSoundEffects : MonoBehaviour
 {
     [SerializeField] private AudioSource footstepsSound;
     [SerializeField] private AudioSource sprintSound;
+    [SerializeField] private AudioSource collectSound;
+
+    public static bool isItemCollected = false;
 
     void Update()
     {
@@ -26,6 +29,14 @@ public class FootSteps : MonoBehaviour
         {
             footstepsSound.enabled = false;
             sprintSound.enabled = false;
+        }
+
+
+        if (isItemCollected)
+        {
+
+            collectSound.PlayOneShot(collectSound.clip);
+            isItemCollected = false;
         }
     }
 }

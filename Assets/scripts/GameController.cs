@@ -51,7 +51,7 @@ public class GameController : MonoBehaviour
         playerInventory = playerObj.GetComponent<PlayerInventory>();
 
         levelFailedMessage = GameObject.Find(Constants.LEVEL_FAILED_CANVAS_MESSAGE_FIELD).GetComponent<Text>();
-        
+
         getLevelDetails(level);
         StartCoroutine("showIntro");
     }
@@ -64,7 +64,7 @@ public class GameController : MonoBehaviour
         }
         catch (System.Exception ex)
         {
-            Debug.Log(ex.Message);            
+            Debug.Log(ex.Message);
         }
         levelIntroCanvas.GetComponent<Canvas>().enabled = true;
         yield return new WaitForSeconds(5);
@@ -158,7 +158,7 @@ public class GameController : MonoBehaviour
             levelFailedCanvas.GetComponent<Canvas>().enabled = true;
             try
             {
-            AudioManager.instance.Stop(currentLevel);
+                AudioManager.instance.Stop(currentLevel);
             }
             catch (System.Exception ex)
             {
@@ -171,7 +171,14 @@ public class GameController : MonoBehaviour
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None;
             levelCompletedCanvas.GetComponent<Canvas>().enabled = true;
-            AudioManager.instance.Stop(currentLevel);
+            try
+            {
+                AudioManager.instance.Stop(currentLevel);
+            }
+            catch (System.Exception ex)
+            {
+                Debug.Log(ex.InnerException);
+            }
         }
 
     }

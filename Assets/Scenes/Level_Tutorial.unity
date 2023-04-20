@@ -22074,7 +22074,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 7.15
+  outlineWidth: 2
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -31391,7 +31391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1749259251739924357, guid: 604210b50e3bf7d4d81c80009530cabb, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.05617266
+      value: 0.056172654
       objectReference: {fileID: 0}
     - target: {fileID: 1749259251853789734, guid: 604210b50e3bf7d4d81c80009530cabb, type: 3}
       propertyPath: m_LocalRotation.w

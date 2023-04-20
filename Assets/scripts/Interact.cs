@@ -93,7 +93,7 @@ public class Interact : MonoBehaviour
                 if (Input.GetKeyDown(interactKey))
                 {
                     // Collect Item
-                    PlayerInventory playerInventory = playerObj.GetComponent<PlayerInventory>();
+                    PlayerInventory playerInventory = playerObj.GetComponent<PlayerInventory>();                    
                     playerInventory.ItemCollected(hit.collider.gameObject);
                     // remove item from scene
                     hit.collider.gameObject.SetActive(false);
