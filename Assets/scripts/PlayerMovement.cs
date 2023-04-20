@@ -7,7 +7,6 @@ using UnityStandardAssets.CrossPlatformInput;
 [RequireComponent(typeof(AudioSource))]
 public class PlayerMovement : MonoBehaviour
 {
-
     private float speed = 1f;
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
@@ -30,9 +29,6 @@ public class PlayerMovement : MonoBehaviour
 
     void MoveCharacter()
     {
-        //float horizontal = Input.GetAxisRaw("Horizontal");
-        //float vertical = Input.GetAxisRaw("Vertical");
-
         float horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
         float vertical = CrossPlatformInputManager.GetAxis("Vertical");
 

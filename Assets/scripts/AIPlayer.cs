@@ -95,7 +95,7 @@ public class AIPlayer : MonoBehaviour
     void WalkingAnimation()
     {
 
-        moveAnimator.SetFloat("MoveSpeed", walkPoint.magnitude);
+        moveAnimator.SetFloat("MoveSpeed", 1);
     }
 
 }
