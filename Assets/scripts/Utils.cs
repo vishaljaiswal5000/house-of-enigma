@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class Utils : MonoBehaviour
 {
     public static int currentLevel;
+    public static int currentSceneName;
+    internal static int currentSceneBuildIndex;
+
     public static int sceneIndexFromName(string sceneName)
     {
         for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
@@ -60,4 +63,25 @@ public class Utils : MonoBehaviour
 
         return time;
     }
+
+
+    public static IEnumerator loadScene(int sceneIndex)
+    {
+        yield return null;
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneIndex);
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    public static void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.buildIndex == 0)
+        {
+
+        }
+        else if (scene.buildIndex == 1)
+        {
+
+        }
+    }
+
 }

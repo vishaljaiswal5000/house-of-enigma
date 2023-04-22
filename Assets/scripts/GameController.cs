@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(AudioSource))]
 public class GameController : MonoBehaviour
-{
-    [SerializeField] private int level;
+{    
     [SerializeField] private AudioSource exitGate;
     private Text levelTitle, levelDescription;
     private Text objectivesTitle, objectivesDescription;
@@ -25,9 +24,7 @@ public class GameController : MonoBehaviour
 
     public void init()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        //update level on shared class
-        Utils.currentLevel = level;
+        Cursor.lockState = CursorLockMode.Locked;        
         exitGateOpen = false;
         levelCompleted = false;
         isDetected = false;
@@ -55,7 +52,7 @@ public class GameController : MonoBehaviour
 
         levelFailedMessage = GameObject.Find(Constants.LEVEL_FAILED_CANVAS_MESSAGE_FIELD).GetComponent<Text>();
 
-        getLevelDetails(level);
+        getLevelDetails(Utils.currentLevel);
         StartCoroutine("showIntro");
     }
 
