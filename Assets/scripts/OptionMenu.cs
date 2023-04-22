@@ -6,13 +6,17 @@ using UnityEngine.UI;
 
 public class OptionMenu : MonoBehaviour
 {
-    private GameObject tutorial, option;
+    private GameObject tutorial, optionMenu, option, controls;
     void Start()
     {
-        option = GameObject.Find(Constants.OPTION_MENU_CANVAS);
+        optionMenu = GameObject.Find(Constants.OPTION_MENU_CANVAS);
         tutorial = GameObject.Find(Constants.TUTORIAL_CANVAS);
-        option.GetComponent<Canvas>().enabled = false;
+        controls = GameObject.Find(Constants.CONTROLS_CANVAS);
+        option = GameObject.Find(Constants.OPTIONS_CANVAS);
+        optionMenu.GetComponent<Canvas>().enabled = false;
         tutorial.GetComponent<Canvas>().enabled = false;
+        controls.GetComponent<Canvas>().enabled = false;
+        option.GetComponent<Canvas>().enabled = false;
     }
 
     void Update()
@@ -23,10 +27,16 @@ public class OptionMenu : MonoBehaviour
     public void TutorialButton()
     {
         tutorial.GetComponent<Canvas>().enabled = true;
+        optionMenu.GetComponent<Canvas>().enabled = false;        
+        controls.GetComponent<Canvas>().enabled = false;
+        option.GetComponent<Canvas>().enabled = false;
     }
 
     public void backToOptionMenuButton()
     {
+        optionMenu.GetComponent<Canvas>().enabled = true;
+        controls.GetComponent<Canvas>().enabled = false;
+        option.GetComponent<Canvas>().enabled = false;
         tutorial.GetComponent<Canvas>().enabled = false;
     }
 
@@ -36,7 +46,7 @@ public class OptionMenu : MonoBehaviour
         tutorial.GetComponent<Canvas>().enabled = false;
 
         // load main menu scene
-        SceneManager.LoadScene(Constants.SCENE_MAINMENU);
+        SceneManager.LoadScene(Constants.SCENE_MAINMENU, LoadSceneMode.Single);
 
     }
 
@@ -49,17 +59,17 @@ public class OptionMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            OptionButton();
+            OptionsMenuButton();
         }
 
     }
 
-    public void OptionButton()
+    public void OptionsMenuButton()
     {
-        option.GetComponent<Canvas>().enabled = !option.GetComponent<Canvas>().enabled;
-        Cursor.lockState = option.GetComponent<Canvas>().enabled ? CursorLockMode.None : CursorLockMode.Locked;
-        Time.timeScale = option.GetComponent<Canvas>().enabled ? 0 : 1;
-        if (option.GetComponent<Canvas>().enabled)
+        optionMenu.GetComponent<Canvas>().enabled = !optionMenu.GetComponent<Canvas>().enabled;
+        Cursor.lockState = optionMenu.GetComponent<Canvas>().enabled ? CursorLockMode.None : CursorLockMode.Locked;
+        Time.timeScale = optionMenu.GetComponent<Canvas>().enabled ? 0 : 1;
+        if (optionMenu.GetComponent<Canvas>().enabled)
         {
             try
             {
@@ -88,6 +98,30 @@ public class OptionMenu : MonoBehaviour
     public void Replay()
     {
         SceneManager.LoadSceneAsync(Utils.currentSceneBuildIndex, LoadSceneMode.Single);
+    }
+
+    public void backToOptions()
+    {
+        controls.GetComponent<Canvas>().enabled = false;
+        option.GetComponent<Canvas>().enabled = true;
+        optionMenu.GetComponent<Canvas>().enabled = false;
+        tutorial.GetComponent<Canvas>().enabled = false;
+    }
+
+    public void ControlsButton()
+    {
+        optionMenu.GetComponent<Canvas>().enabled = false;
+        tutorial.GetComponent<Canvas>().enabled = false;
+        option.GetComponent<Canvas>().enabled = false;
+        controls.GetComponent<Canvas>().enabled = true;
+    }
+
+    public void OptionButton()
+    {
+        optionMenu.GetComponent<Canvas>().enabled = false;
+        tutorial.GetComponent<Canvas>().enabled = false;
+        option.GetComponent<Canvas>().enabled = false;
+        controls.GetComponent<Canvas>().enabled = false;
     }
 
 }
