@@ -85,5 +85,9 @@ public class OptionMenu : MonoBehaviour
         }
     }
 
+    public void Replay()
+    {
+        SceneManager.LoadSceneAsync(Utils.currentSceneBuildIndex, LoadSceneMode.Single);
+    }
 
 }
