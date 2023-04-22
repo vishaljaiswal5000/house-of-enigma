@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(AudioSource))]
 public class GameController : MonoBehaviour
-{
-    [SerializeField] private int level;
+{    
+    [SerializeField] private AudioSource exitGate;
     private Text levelTitle, levelDescription;
     private Text objectivesTitle, objectivesDescription;
     private Text levelIntroTitle, levelIntroDescription;
@@ -13,8 +14,9 @@ public class GameController : MonoBehaviour
     private GameObject hudCanvas, levelCompletedCanvas, levelFailedCanvas, levelIntroCanvas, playerObj;
     private int totalClues;
     private PlayerInventory playerInventory;
-    public static bool exitGateOpen, levelCompleted, isDetected, isCaught;
+    public static bool exitGateOpen, levelCompleted, isDetected, isCaught, isExitGateOpenSoundPlayed;
     public static string currentLevel;
+
     void Start()
     {
         init();
@@ -22,9 +24,7 @@ public class GameController : MonoBehaviour
 
     public void init()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        //update level on shared class
-        Utils.currentLevel = level;
+        Cursor.lockState = CursorLockMode.Locked;        
         exitGateOpen = false;
         levelCompleted = false;
         isDetected = false;
@@ -52,7 +52,7 @@ public class GameController : MonoBehaviour
 
         levelFailedMessage = GameObject.Find(Constants.LEVEL_FAILED_CANVAS_MESSAGE_FIELD).GetComponent<Text>();
 
-        getLevelDetails(level);
+        getLevelDetails(Utils.currentLevel);
         StartCoroutine("showIntro");
     }
 
@@ -140,6 +140,11 @@ public class GameController : MonoBehaviour
 
     public void checkProgress()
     {
+        if (exitGateOpen)
+        {
+            playExitGateOpenSound();
+        }
+
         if (TimerController.remainingTime == 0 && !levelCompleted)
         {
             // update failed message: running out of time
@@ -192,6 +197,16 @@ public class GameController : MonoBehaviour
         {
             exitGateOpen = true;
             objectivesDescription.text = Constants.MESSAGE_EXIT_GATE;
+        }
+    }
+
+
+    public void playExitGateOpenSound()
+    {
+        if (!isExitGateOpenSoundPlayed)
+        {
+            exitGate.PlayOneShot(exitGate.clip);
+            isExitGateOpenSoundPlayed = true;
         }
     }
 

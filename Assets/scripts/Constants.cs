@@ -33,10 +33,18 @@ public class Constants
     public const string SCENE_LEVEL2 = "Level_2";
     public const string SCENE_LEVEL3 = "Level_3";
     public const string SCENE_LEVEL4 = "Level_4";
-        
+    
+    // Scene build index
+    public const int SCENE_MAINMENU_BUILDINDEX = 0;
+    public const int SCENE_TUTORIAL_BUILDINDEX = 1;
+    public const int SCENE_LEVEL1_BUILDINDEX = 2;
+    public const int SCENE_LEVEL2_BUILDINDEX = 3;
+    public const int SCENE_LEVEL3_BUILDINDEX = 4;
+    public const int SCENE_LEVEL4_BUILDINDEX = 5;
+
 
     // Level Data 0
-   
+
     public const string TITLE_LEVEL0 =  "Tutorial Level \nInvestigate Surgery Room";
     public const string DESCRIPTION_LEVEL0 = "Find the clues in the morgue.";
     public const string OBJECTIVES_TITLE_LEVEL0 = "Items Found: {0}/3";
@@ -46,10 +54,10 @@ public class Constants
 
     // Level Data 1
 
-    public const string TITLE_LEVEL1 = "Testing Title";
-    public const string DESCRIPTION_LEVEL1 = "Some dummy text for testing description";
+    public const string TITLE_LEVEL1 = "Tutorial Level \nInvestigate Surgery Room";
+    public const string DESCRIPTION_LEVEL1 = "Find the clues in the morgue.";
     public const string OBJECTIVES_TITLE_LEVEL1 = "Items Found: {0}/3";
-    public const string OBJECTIVES_DESCRIPTION_LEVEL1 = "\n1. Find item \n2. Find item \n3. Find item \n";
+    public const string OBJECTIVES_DESCRIPTION_LEVEL1 = "\n1. Get the Notebook \n2. Schedule of the surgery \n3. Collectible Vase \n";
     public const int TOTAL_NUMBERS_OF_GAMECLUES_LEVEL1 = 3;
     public const int TOTAL_TIME_LEVEL1 = 5 * 60;
 
@@ -93,6 +101,9 @@ public class Constants
     public const string MAINMENU_CANVAS = "MainMenuCanvas";
     public const string LOADING_CANVAS = "LoadingCanvas";
     public const string LEVEL_SELECTION_CANVAS = "LevelSelectionCanvas";
+    public const string OPTIONS_CANVAS = "OptionsCanvas";
+    public const string CONTROLS_CANVAS = "ControlsCanvas";    
+
     public const string LEVEL_FAILED_CANVAS_MESSAGE_FIELD = "FailedMessage";
 
     // Level Failed Messages
