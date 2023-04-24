@@ -46,7 +46,7 @@ public class Constants
     // Level Data 0
 
     public const string TITLE_LEVEL0 =  "Tutorial Level \nInvestigate Surgery Room";
-    public const string DESCRIPTION_LEVEL0 = "Find the clues in the morgue.";
+    public const string DESCRIPTION_LEVEL0 = "Find the clues in the hospital.";
     public const string OBJECTIVES_TITLE_LEVEL0 = "Items Found: {0}/3";
     public const string OBJECTIVES_DESCRIPTION_LEVEL0 = "\n1. Get the Notebook \n2. Schedule of the surgery \n3. Collectible Vase \n";
     public const int TOTAL_NUMBERS_OF_GAMECLUES_LEVEL0 = 3;
@@ -54,8 +54,8 @@ public class Constants
 
     // Level Data 1
 
-    public const string TITLE_LEVEL1 = "Tutorial Level \nInvestigate Surgery Room";
-    public const string DESCRIPTION_LEVEL1 = "Find the clues in the morgue.";
+    public const string TITLE_LEVEL1 = "Welcome to Level 1\nThe Heist Begins.";
+    public const string DESCRIPTION_LEVEL1 = "Your objective is to infiltrate a high-security mansion and collect several valuable pieces of evidence without getting caught by the agent.The mansion is divided into several rooms, and each room contains at least one piece of evidence that you need to collect.Your task is to search each room, collect the evidence, and avoid detection by the agent. If the agent spots you, they will chase you and try to catch you.If you are caught, you will be captured and the game will be over. You have a limited amount of time to complete the mission, so you will need to move quickly and efficiently.Keep an eye out for obstacles and hiding spots, and use them to your advantage. Be careful not to make too much noise or leave any evidence of your presence, or the agent may become suspicious.To help you along the way, you can use your intuition and observation skills to find clues and hints about the location of the evidence.Each piece of evidence has a unique identifier, so make sure to remember which ones you've already collected. Your ultimate goal is to collect all of the evidence and reach the exit gate before the time runs out. Good luck!";
     public const string OBJECTIVES_TITLE_LEVEL1 = "Items Found: {0}/3";
     public const string OBJECTIVES_DESCRIPTION_LEVEL1 = "\n1. Get the Notebook \n2. Schedule of the surgery \n3. Collectible Vase \n";
     public const int TOTAL_NUMBERS_OF_GAMECLUES_LEVEL1 = 3;
