@@ -120,7 +120,7 @@ public class OptionMenu : MonoBehaviour
     {
         optionMenu.GetComponent<Canvas>().enabled = false;
         tutorial.GetComponent<Canvas>().enabled = false;
-        option.GetComponent<Canvas>().enabled = false;
+        option.GetComponent<Canvas>().enabled = true;
         controls.GetComponent<Canvas>().enabled = false;
     }
 

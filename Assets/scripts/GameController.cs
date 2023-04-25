@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(AudioSource))]
 public class GameController : MonoBehaviour
-{    
+{
     [SerializeField] private AudioSource exitGate;
     private Text levelTitle, levelDescription;
     private Text objectivesTitle, objectivesDescription;
@@ -24,7 +24,6 @@ public class GameController : MonoBehaviour
 
     public void init()
     {
-        Cursor.lockState = CursorLockMode.Locked;        
         exitGateOpen = false;
         levelCompleted = false;
         isDetected = false;
@@ -53,11 +52,13 @@ public class GameController : MonoBehaviour
         levelFailedMessage = GameObject.Find(Constants.LEVEL_FAILED_CANVAS_MESSAGE_FIELD).GetComponent<Text>();
 
         getLevelDetails(Utils.currentLevel);
-        StartCoroutine("showIntro");
+        showIntro();
     }
 
-    IEnumerator showIntro()
+    public void showIntro()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 0;
         try
         {
             AudioManager.instance.Play(currentLevel);
@@ -67,10 +68,15 @@ public class GameController : MonoBehaviour
             Debug.Log(ex.Message);
         }
         levelIntroCanvas.GetComponent<Canvas>().enabled = true;
-        yield return new WaitForSeconds(5);
-        hudCanvas.GetComponent<Canvas>().enabled = true;
+        hudCanvas.GetComponent<Canvas>().enabled = false;
+    }
+
+    public void startButton()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Time.timeScale = 1;
         levelIntroCanvas.GetComponent<Canvas>().enabled = false;
-        yield return new WaitForSeconds(1);
+        hudCanvas.GetComponent<Canvas>().enabled = true;
         TimerController.StartTimer();
     }
 
