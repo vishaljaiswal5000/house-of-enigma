@@ -21,6 +21,7 @@ TagManager:
   - LevelIntroTitle
   - ExitDoor
   - AIPlayer
+  - PlayerFocus
   layers:
   - Default
   - TransparentFX
@@ -34,7 +35,7 @@ TagManager:
   - Wall
   - NPC
   - Prop
-  - 
+  - Ceil
   - 
   - 
   - 
