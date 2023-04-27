@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     [SerializeField] private AudioSource exitGate;
+    [SerializeField] private GameObject[] exitDoor;
+
     private Text levelTitle, levelDescription;
     private Text objectivesTitle, objectivesDescription;
     private Text levelIntroTitle, levelIntroDescription;
@@ -197,11 +199,15 @@ public class GameController : MonoBehaviour
     public void showGameClues()
     {
         Text objectivesTitle = GameObject.FindGameObjectWithTag(Constants.TAG_OBJECTIVES_TITLE).GetComponent<Text>();
-        objectivesTitle.text = string.Format(Constants.OBJECTIVES_TITLE_LEVEL0, playerInventory.numberOfGameClues);
+        objectivesTitle.text = string.Format(Constants.OBJECTIVES_TITLE_LEVEL2, playerInventory.numberOfGameClues);
 
         if (playerInventory.numberOfGameClues == totalClues)
         {
             exitGateOpen = true;
+            for (int i = 0; i < exitDoor.Length; i++)
+            {
+                exitDoor[i].tag = Constants.TAG_EXITDOOR;
+            }
             objectivesDescription.text = Constants.MESSAGE_EXIT_GATE;
         }
     }

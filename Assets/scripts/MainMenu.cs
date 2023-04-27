@@ -135,7 +135,7 @@ public class MainMenu : MonoBehaviour
         //update level on shared class
         Utils.currentLevel = level;
         Utils.currentSceneBuildIndex = sceneBuildIndex;
-        
+
 
         AudioManager.instance.Stop(Constants.SCENE_MAINMENU);
         StartCoroutine("loadScene", Utils.sceneIndexFromName(sceneName));
