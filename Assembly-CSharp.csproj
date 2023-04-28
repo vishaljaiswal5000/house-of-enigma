@@ -63,6 +63,7 @@
     <Compile Include="Assets\Flooded_Grounds\PostProcessing\Runtime\Utils\ColorGradingCurve.cs" />
     <Compile Include="Assets\scripts\PlayerInventory.cs" />
     <Compile Include="Assets\Brick Project Studio\Apartment Kit\Common\Scripts &amp; Animation\Z Axis -1\Drawer_Pull_Zopp.cs" />
+    <Compile Include="Assets\HorrorEnvironment_Hospital\Scripts\setActiveOnTriggerEnter.cs" />
     <Compile Include="Assets\Flooded_Grounds\PostProcessing\Runtime\Utils\MaterialFactory.cs" />
     <Compile Include="Assets\Flooded_Grounds\PostProcessing\Runtime\Components\ScreenSpaceReflectionComponent.cs" />
     <Compile Include="Assets\Brick Project Studio\_BPS Basic Assets\Common\Scripts and Animations\Drawer\X Axis\Drawer_Pull_X.cs" />
@@ -78,10 +79,12 @@
     <Compile Include="Assets\Flooded_Grounds\PostProcessing\Runtime\Components\BloomComponent.cs" />
     <Compile Include="Assets\scripts\AIPlayer.cs" />
     <Compile Include="Assets\Brick Project Studio\Apartment Kit\Common\Scripts &amp; Animation\Slide\opencloseSlide.cs" />
+    <Compile Include="Assets\HorrorEnvironment_Hospital\Scripts\physicWalk_MouseLook.cs" />
     <Compile Include="Assets\Flooded_Grounds\Scripts\FPSController\CharController_Motor.cs" />
     <Compile Include="Assets\MagicMirror\Prefab\MirrorReflectionScript.cs" />
     <Compile Include="Assets\Brick Project Studio\Apartment Kit\Common\Scripts &amp; Animation\OvenOpen\OvenFlip.cs" />
     <Compile Include="Assets\scripts\Constants.cs" />
+    <Compile Include="Assets\HorrorEnvironment_Hospital\Scripts\setParentOnTriggerEnter.cs" />
     <Compile Include="Assets\Clock\Scripts\Clock.cs" />
     <Compile Include="Assets\Brick Project Studio\_BPS Basic Assets\Common\Scripts and Animations\Doors\opencloseStallDoor.cs" />
     <Compile Include="Assets\scripts\PlayerMovement.cs" />
@@ -93,17 +96,23 @@
     <Compile Include="Assets\Flooded_Grounds\PostProcessing\Runtime\Models\BloomModel.cs" />
     <Compile Include="Assets\Flooded_Grounds\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
     <Compile Include="Assets\Brick Project Studio\Apartment Kit\Scenes\Quitgame.cs" />
+    <Compile Include="Assets\HorrorEnvironment_Hospital\Scripts\setActiveOnAwake.cs" />
     <Compile Include="Assets\Flooded_Grounds\PostProcessing\Runtime\Components\FxaaComponent.cs" />
+    <Compile Include="Assets\scripts\NPC.cs" />
+    <Compile Include="Assets\scripts\Leve2.cs" />
     <Compile Include="Assets\Flooded_Grounds\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
     <Compile Include="Assets\Flooded_Grounds\PostProcessing\Runtime\Components\ChromaticAberrationComponent.cs" />
     <Compile Include="Assets\Flooded_Grounds\PostProcessing\Runtime\Components\BuiltinDebugViewsComponent.cs" />
     <Compile Include="Assets\Flooded_Grounds\PostProcessing\Runtime\Attributes\TrackballGroupAttribute.cs" />
+    <Compile Include="Assets\HorrorEnvironment_Hospital\Scripts\playAnimationOnTriggerEnter.cs" />
+    <Compile Include="Assets\HorrorEnvironment_Hospital\Scripts\toggleFloorLights.cs" />
     <Compile Include="Assets\Flooded_Grounds\PostProcessing\Runtime\PostProcessingBehaviour.cs" />
     <Compile Include="Assets\Flooded_Grounds\PostProcessing\Runtime\Models\EyeAdaptationModel.cs" />
     <Compile Include="Assets\Flooded_Grounds\PostProcessing\Runtime\Utils\GraphicsUtils.cs" />
     <Compile Include="Assets\Flooded_Grounds\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
     <Compile Include="Assets\Flooded_Grounds\PostProcessing\Runtime\Components\VignetteComponent.cs" />
     <Compile Include="Assets\Flooded_Grounds\PostProcessing\Runtime\Models\FogModel.cs" />
+    <Compile Include="Assets\scripts\Test.cs" />
     <Compile Include="Assets\Flooded_Grounds\PostProcessing\Runtime\Components\TaaComponent.cs" />
     <Compile Include="Assets\Flooded_Grounds\PostProcessing\Runtime\Models\VignetteModel.cs" />
     <Compile Include="Assets\Flooded_Grounds\PostProcessing\Runtime\Models\GrainModel.cs" />
@@ -116,13 +125,16 @@
     <Compile Include="Assets\Flooded_Grounds\PostProcessing\Runtime\Components\GrainComponent.cs" />
     <Compile Include="Assets\Flooded_Grounds\Scripts\WaterFloat.cs" />
     <Compile Include="Assets\Brick Project Studio\Apartment Kit\Common\Scripts &amp; Animation\Closet\ClosetopencloseDoor.cs" />
+    <Compile Include="Assets\HorrorEnvironment_Hospital\Scripts\physicWalk.cs" />
     <Compile Include="Assets\Brick Project Studio\Apartment Kit\Common\Scripts &amp; Animation\TableFlip\TableFlipR.cs" />
+    <Compile Include="Assets\HorrorEnvironment_Hospital\Scripts\destroyOnTriggerEnter.cs" />
     <Compile Include="Assets\Flooded_Grounds\PostProcessing\Runtime\Models\UserLutModel.cs" />
     <Compile Include="Assets\Flooded_Grounds\PostProcessing\Runtime\Models\MotionBlurModel.cs" />
     <Compile Include="Assets\Brick Project Studio\_BPS Basic Assets\Common\Scripts and Animations\Doors\opencloseDoor.cs" />
     <Compile Include="Assets\Brick Project Studio\_BPS Basic Assets\Common\Scripts and Animations\First Person Player\MouseLook.cs" />
     <Compile Include="Assets\Flooded_Grounds\PostProcessing\Runtime\Components\UserLutComponent.cs" />
     <Compile Include="Assets\Brick Project Studio\_BPS Basic Assets\Common\Scripts and Animations\Windows\opencloseWindow.cs" />
+    <Compile Include="Assets\HorrorEnvironment_Hospital\Scripts\HE_H_distortedLight.cs" />
     <Compile Include="Assets\Flooded_Grounds\PostProcessing\Runtime\Models\AmbientOcclusionModel.cs" />
     <Compile Include="Assets\Flooded_Grounds\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
     <Compile Include="Assets\Flooded_Grounds\PostProcessing\Runtime\Models\BuiltinDebugViewsModel.cs" />
@@ -144,18 +156,6 @@
     <Compile Include="Assets\Flooded_Grounds\Scripts\FPSDisplay.cs" />
     <Compile Include="Assets\Flooded_Grounds\PostProcessing\Runtime\Models\AntialiasingModel.cs" />
     <Compile Include="Assets\Flooded_Grounds\PostProcessing\Runtime\Models\DitheringModel.cs" />
-    <Compile Include="Assets\scripts\Test.cs" />
-    <Compile Include="Assets\HorrorEnvironment_Hospital\Scripts\physicWalk_MouseLook.cs" />
-    <Compile Include="Assets\HorrorEnvironment_Hospital\Scripts\playAnimationOnTriggerEnter.cs" />
-    <Compile Include="Assets\HorrorEnvironment_Hospital\Scripts\setParentOnTriggerEnter.cs" />
-    <Compile Include="Assets\HorrorEnvironment_Hospital\Scripts\toggleFloorLights.cs" />
-    <Compile Include="Assets\HorrorEnvironment_Hospital\Scripts\physicWalk.cs" />
-    <Compile Include="Assets\HorrorEnvironment_Hospital\Scripts\setActiveOnTriggerEnter.cs" />
-    <Compile Include="Assets\HorrorEnvironment_Hospital\Scripts\destroyOnTriggerEnter.cs" />
-    <Compile Include="Assets\HorrorEnvironment_Hospital\Scripts\HE_H_distortedLight.cs" />
-    <Compile Include="Assets\scripts\NPC.cs" />
-    <Compile Include="Assets\scripts\Leve2.cs" />
-    <Compile Include="Assets\HorrorEnvironment_Hospital\Scripts\setActiveOnAwake.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Flooded_Grounds\PostProcessing\Resources\Shaders\ScreenSpaceReflection.shader" />
@@ -837,23 +837,11 @@
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Services.Core.Analytics">
-      <HintPath>Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Shared.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Services.Core.Environments">
-      <HintPath>Library\ScriptAssemblies\Unity.Services.Core.Environments.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
@@ -888,16 +876,22 @@
     <Reference Include="Unity.Services.Core">
       <HintPath>Library\ScriptAssemblies\Unity.Services.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.State">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VisualScripting.Core">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Services.Core.Analytics">
+      <HintPath>Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.cinemachine.editor">
       <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ae78758 (Please check)
     <Reference Include="Unity.VisualScripting.Shared.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
     </Reference>
@@ -907,6 +901,7 @@
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
     </Reference>
+<<<<<<< HEAD
     <Reference Include="Unity.AI.Navigation.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.dll</HintPath>
     </Reference>
@@ -925,6 +920,10 @@
     <Reference Include="Cinemachine">
       <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
 >>>>>>> 79b24cb (Please check)
+=======
+    <Reference Include="Unity.VisualScripting.State">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+>>>>>>> ae78758 (Please check)
     </Reference>
   </ItemGroup>
   <ItemGroup>

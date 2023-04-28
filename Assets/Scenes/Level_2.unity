@@ -33286,7 +33286,6 @@ MonoBehaviour:
   - {fileID: 1830628561}
   - {fileID: 1065558410}
   - {fileID: 1966166425}
-  - {fileID: 1652198300}
   - {fileID: 650395715}
   selfDestroy: 0
 --- !u!135 &1134771836
@@ -47896,11 +47895,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d1ab78303a3c134fbc90451bbf6f6fb, type: 3}
---- !u!1 &1652198300 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100004, guid: f05a003082e5dff4eaed4d7c9b440d49, type: 3}
-  m_PrefabInstance: {fileID: 1522998625}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1652198301 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400004, guid: f05a003082e5dff4eaed4d7c9b440d49, type: 3}
