@@ -8,16 +8,16 @@ public class AIPlayer : MonoBehaviour
 
     private NavMeshAgent agent;
     private Transform player;
-    [SerializeField ] private LayerMask groundLayer, playerLayer;
+    [SerializeField] private LayerMask groundLayer, playerLayer;
     public float health;
 
     //Patroling
     public Vector3 walkPoint;
     bool walkPointSet;
-    [SerializeField]private float walkPointRange;
+    [SerializeField] private float walkPointRange;
 
     //Attacking
-    public float timeBetweenAttacks;    
+    public float timeBetweenAttacks;
     public GameObject projectile;
 
     //States
@@ -32,11 +32,14 @@ public class AIPlayer : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
 
+    private void Start()
+    {
+    }
+
     private void Update()
     {
         //Check for sight
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, playerLayer);
-
         if (!playerInSightRange)
         {
             GameController.isDetected = false;
@@ -72,7 +75,7 @@ public class AIPlayer : MonoBehaviour
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
 
-        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
+        walkPoint = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 
         if (Physics.Raycast(walkPoint, -transform.up, 2f, groundLayer))
         {
@@ -82,9 +85,8 @@ public class AIPlayer : MonoBehaviour
     }
 
     private void ChasePlayer()
-    {        
-        agent.SetDestination(player.position);
-
+    {
+        agent.SetDestination(player.localPosition);
         float distance = Vector3.Distance(player.position, gameObject.GetComponent<Transform>().position);
         if (distance < 1)
         {
@@ -94,7 +96,6 @@ public class AIPlayer : MonoBehaviour
 
     void WalkingAnimation()
     {
-
         moveAnimator.SetFloat("MoveSpeed", 1);
     }
 

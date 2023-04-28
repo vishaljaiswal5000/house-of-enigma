@@ -33,7 +33,7 @@ public class Constants
     public const string SCENE_LEVEL2 = "Level_2";
     public const string SCENE_LEVEL3 = "Level_3";
     public const string SCENE_LEVEL4 = "Level_4";
-    
+
     // Scene build index
     public const int SCENE_MAINMENU_BUILDINDEX = 0;
     public const int SCENE_TUTORIAL_BUILDINDEX = 1;
@@ -45,7 +45,7 @@ public class Constants
 
     // Level Data 0
 
-    public const string TITLE_LEVEL0 =  "Tutorial Level \nInvestigate Surgery Room";
+    public const string TITLE_LEVEL0 = "Tutorial Level \nInvestigate Surgery Room";
     public const string DESCRIPTION_LEVEL0 = "Find the clues in the hospital.";
     public const string OBJECTIVES_TITLE_LEVEL0 = "Items Found: {0}/3";
     public const string OBJECTIVES_DESCRIPTION_LEVEL0 = "\n1. Get the Brain Jar \n2. Schedule of the surgery \n3. Stolen Bird Sculpture \n";
@@ -62,11 +62,11 @@ public class Constants
     public const int TOTAL_TIME_LEVEL1 = 5 * 60;
 
     // Level Data 2
-    public const string TITLE_LEVEL2 = "Testing Title";
-    public const string DESCRIPTION_LEVEL2 = "Some dummy text for testing description";
-    public const string OBJECTIVES_TITLE_LEVEL2 = "Items Found: {0}/3";
-    public const string OBJECTIVES_DESCRIPTION_LEVEL2 = "\n1. Find item \n2. Find item \n3. Find item \n";
-    public const int TOTAL_NUMBERS_OF_GAMECLUES_LEVEL2 = 3;
+    public const string TITLE_LEVEL2 = "Leve 2 \nInpatient Department";
+    public const string DESCRIPTION_LEVEL2 = "Find the clues in the hospital.";
+    public const string OBJECTIVES_TITLE_LEVEL2 = "Items Found: {0}/10";
+    public const string OBJECTIVES_DESCRIPTION_LEVEL2 = "\n1. Watch record \n2. Schedule of the surgery \n3. Operating notes \n4. Syringe \n5. Get the Skull \n6. Medical record \n7. Scalpel \n8. Visceral specimen \n9. Medicine bottle \n10. Skeleton";
+    public const int TOTAL_NUMBERS_OF_GAMECLUES_LEVEL2 = 10;
     public const int TOTAL_TIME_LEVEL2 = 5 * 60;
     // Level Data 3
     public const string TITLE_LEVEL3 = "Testing Title";
@@ -102,7 +102,7 @@ public class Constants
     public const string LOADING_CANVAS = "LoadingCanvas";
     public const string LEVEL_SELECTION_CANVAS = "LevelSelectionCanvas";
     public const string OPTIONS_CANVAS = "OptionsCanvas";
-    public const string CONTROLS_CANVAS = "ControlsCanvas";    
+    public const string CONTROLS_CANVAS = "ControlsCanvas";
 
     public const string LEVEL_FAILED_CANVAS_MESSAGE_FIELD = "FailedMessage";
 
