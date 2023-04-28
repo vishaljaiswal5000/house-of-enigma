@@ -48,16 +48,16 @@ public class Constants
     public const string TITLE_LEVEL0 =  "Tutorial Level \nInvestigate Surgery Room";
     public const string DESCRIPTION_LEVEL0 = "Find the clues in the hospital.";
     public const string OBJECTIVES_TITLE_LEVEL0 = "Items Found: {0}/3";
-    public const string OBJECTIVES_DESCRIPTION_LEVEL0 = "\n1. Get the Notebook \n2. Schedule of the surgery \n3. Collectible Vase \n";
+    public const string OBJECTIVES_DESCRIPTION_LEVEL0 = "\n1. Get the Brain Jar \n2. Schedule of the surgery \n3. Stolen Bird Sculpture \n";
     public const int TOTAL_NUMBERS_OF_GAMECLUES_LEVEL0 = 3;
     public const int TOTAL_TIME_LEVEL0 = 5 * 60;
 
     // Level Data 1
 
-    public const string TITLE_LEVEL1 = "Welcome to Level 1\nThe Heist Begins.";
-    public const string DESCRIPTION_LEVEL1 = "Your objective is to infiltrate a high-security mansion and collect several valuable pieces of evidence without getting caught by the agent.The mansion is divided into several rooms, and each room contains at least one piece of evidence that you need to collect.Your task is to search each room, collect the evidence, and avoid detection by the agent. If the agent spots you, they will chase you and try to catch you.If you are caught, you will be captured and the game will be over. You have a limited amount of time to complete the mission, so you will need to move quickly and efficiently.Keep an eye out for obstacles and hiding spots, and use them to your advantage. Be careful not to make too much noise or leave any evidence of your presence, or the agent may become suspicious.To help you along the way, you can use your intuition and observation skills to find clues and hints about the location of the evidence.Each piece of evidence has a unique identifier, so make sure to remember which ones you've already collected. Your ultimate goal is to collect all of the evidence and reach the exit gate before the time runs out. Good luck!";
+    public const string TITLE_LEVEL1 = "Welcome to Level 1\nThe Heist Begins";
+    public const string DESCRIPTION_LEVEL1 = "Your objective is to infiltrate a hospital basement floor and collect three valuable pieces of evidence without getting caught by the agent. The hospital floor is divided into several rooms; you must find evidence there. Your task is to search and collect the evidence and avoid detection by the agent. Be careful not to make too much noise or leave any evidence of your presence, or the agent may become suspicious. If the agent spots you, they will chase and try to catch you. If you are caught, then the mission will end.\nYou have limited time to complete the task, so you will need to move quickly and efficiently.\nHere are a few insights from our intel:\n1. Check the autopsy room.\n2. Room with blue light.\n3. Check the doctor's room which has a mirror.\nYour ultimate goal is to collect all the evidence and reach the exit gate on time. Good luck!";
     public const string OBJECTIVES_TITLE_LEVEL1 = "Items Found: {0}/3";
-    public const string OBJECTIVES_DESCRIPTION_LEVEL1 = "\n1. Get the Notebook \n2. Schedule of the surgery \n3. Collectible Vase \n";
+    public const string OBJECTIVES_DESCRIPTION_LEVEL1 = "\n1. Get the Doctor's Notebook \n2. Schedule of the surgery \n3. Stolen Vase \n";
     public const int TOTAL_NUMBERS_OF_GAMECLUES_LEVEL1 = 3;
     public const int TOTAL_TIME_LEVEL1 = 5 * 60;
 
