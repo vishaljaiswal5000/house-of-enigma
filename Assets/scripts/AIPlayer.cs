@@ -55,6 +55,7 @@ public class AIPlayer : MonoBehaviour
 
     private void Patroling()
     {
+        this.GetComponent<AudioSource>().enabled = false;
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)
@@ -87,6 +88,7 @@ public class AIPlayer : MonoBehaviour
     private void ChasePlayer()
     {
         agent.SetDestination(player.localPosition);
+        this.GetComponent<AudioSource>().enabled = true;
         float distance = Vector3.Distance(player.position, gameObject.GetComponent<Transform>().position);
         if (distance < 1)
         {

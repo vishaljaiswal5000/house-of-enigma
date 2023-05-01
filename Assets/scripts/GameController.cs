@@ -199,16 +199,30 @@ public class GameController : MonoBehaviour
     public void showGameClues()
     {
         Text objectivesTitle = GameObject.FindGameObjectWithTag(Constants.TAG_OBJECTIVES_TITLE).GetComponent<Text>();
-        objectivesTitle.text = string.Format(Constants.OBJECTIVES_TITLE_LEVEL2, playerInventory.numberOfGameClues);
 
-        if (playerInventory.numberOfGameClues == totalClues)
+
+        if (Utils.currentLevel == 2)
         {
-            exitGateOpen = true;
-            for (int i = 0; i < exitDoor.Length; i++)
+            objectivesTitle.text = string.Format(Constants.OBJECTIVES_TITLE_LEVEL2, playerInventory.numberOfGameClues);
+            if (playerInventory.numberOfGameClues == totalClues)
             {
-                exitDoor[i].tag = Constants.TAG_EXITDOOR;
+                exitGateOpen = true;
+                for (int i = 0; i < exitDoor.Length; i++)
+                {
+                    exitDoor[i].tag = Constants.TAG_EXITDOOR;
+                }
+                objectivesDescription.text = Constants.MESSAGE_EXIT_GATE;
             }
-            objectivesDescription.text = Constants.MESSAGE_EXIT_GATE;
+        }
+        else
+        {
+            objectivesTitle.text = string.Format(Constants.OBJECTIVES_TITLE_LEVEL0, playerInventory.numberOfGameClues);
+
+            if (playerInventory.numberOfGameClues == totalClues)
+            {
+                exitGateOpen = true;
+                objectivesDescription.text = Constants.MESSAGE_EXIT_GATE;
+            }
         }
     }
 
