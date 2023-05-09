@@ -69,10 +69,10 @@ public class Constants
     public const int TOTAL_NUMBERS_OF_GAMECLUES_LEVEL2 = 10;
     public const int TOTAL_TIME_LEVEL2 = 5 * 60;
     // Level Data 3
-    public const string TITLE_LEVEL3 = "Testing Title";
-    public const string DESCRIPTION_LEVEL3 = "Some dummy text for testing description";
+    public const string TITLE_LEVEL3 = "Level 3\n Murder house";
+    public const string DESCRIPTION_LEVEL3 = "Find the clues in the house";
     public const string OBJECTIVES_TITLE_LEVEL3 = "Items Found: {0}/3";
-    public const string OBJECTIVES_DESCRIPTION_LEVEL3 = "\n1. Find item \n2. Find item \n3. Find item \n";
+    public const string OBJECTIVES_DESCRIPTION_LEVEL3 = "\n1. Human Brain \n2. Weapon: Gun \n3. Trash bin \n";
     public const int TOTAL_NUMBERS_OF_GAMECLUES_LEVEL3 = 3;
     public const int TOTAL_TIME_LEVEL3 = 5 * 60;
     // Level Data 4
