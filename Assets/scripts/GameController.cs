@@ -200,8 +200,27 @@ public class GameController : MonoBehaviour
     {
         Text objectivesTitle = GameObject.FindGameObjectWithTag(Constants.TAG_OBJECTIVES_TITLE).GetComponent<Text>();
 
+        if (Utils.currentLevel == 0)
+        {
+            objectivesTitle.text = string.Format(Constants.OBJECTIVES_TITLE_LEVEL0, playerInventory.numberOfGameClues);
 
-        if (Utils.currentLevel == 2)
+            if (playerInventory.numberOfGameClues == totalClues)
+            {
+                exitGateOpen = true;
+                objectivesDescription.text = Constants.MESSAGE_EXIT_GATE;
+            }
+        }
+        else if (Utils.currentLevel == 1)
+        {
+            objectivesTitle.text = string.Format(Constants.OBJECTIVES_TITLE_LEVEL1, playerInventory.numberOfGameClues);
+
+            if (playerInventory.numberOfGameClues == totalClues)
+            {
+                exitGateOpen = true;
+                objectivesDescription.text = Constants.MESSAGE_EXIT_GATE;
+            }
+        }
+        else if (Utils.currentLevel == 2)
         {
             objectivesTitle.text = string.Format(Constants.OBJECTIVES_TITLE_LEVEL2, playerInventory.numberOfGameClues);
             if (playerInventory.numberOfGameClues == totalClues)
@@ -214,9 +233,9 @@ public class GameController : MonoBehaviour
                 objectivesDescription.text = Constants.MESSAGE_EXIT_GATE;
             }
         }
-        else
+        else if (Utils.currentLevel == 3)
         {
-            objectivesTitle.text = string.Format(Constants.OBJECTIVES_TITLE_LEVEL0, playerInventory.numberOfGameClues);
+            objectivesTitle.text = string.Format(Constants.OBJECTIVES_TITLE_LEVEL3, playerInventory.numberOfGameClues);
 
             if (playerInventory.numberOfGameClues == totalClues)
             {
@@ -224,6 +243,19 @@ public class GameController : MonoBehaviour
                 objectivesDescription.text = Constants.MESSAGE_EXIT_GATE;
             }
         }
+        else if (Utils.currentLevel == 4)
+        {
+            objectivesTitle.text = string.Format(Constants.OBJECTIVES_TITLE_LEVEL4, playerInventory.numberOfGameClues);
+
+            if (playerInventory.numberOfGameClues == totalClues)
+            {
+                exitGateOpen = true;
+                objectivesDescription.text = Constants.MESSAGE_EXIT_GATE;
+            }
+        }
+
+
+
     }
 
 

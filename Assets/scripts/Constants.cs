@@ -59,7 +59,7 @@ public class Constants
     public const string OBJECTIVES_TITLE_LEVEL1 = "Items Found: {0}/3";
     public const string OBJECTIVES_DESCRIPTION_LEVEL1 = "\n1. Get the Doctor's Notebook \n2. Schedule of the surgery \n3. Stolen Vase \n";
     public const int TOTAL_NUMBERS_OF_GAMECLUES_LEVEL1 = 3;
-    public const int TOTAL_TIME_LEVEL1 = 5 * 60;
+    public const int TOTAL_TIME_LEVEL1 = 4 * 60;
 
     // Level Data 2
     public const string TITLE_LEVEL2 = "Leve 2 \nInpatient Department";
@@ -74,7 +74,7 @@ public class Constants
     public const string OBJECTIVES_TITLE_LEVEL3 = "Items Found: {0}/3";
     public const string OBJECTIVES_DESCRIPTION_LEVEL3 = "\n1. Human Brain \n2. Weapon: Gun \n3. Trash bin \n";
     public const int TOTAL_NUMBERS_OF_GAMECLUES_LEVEL3 = 3;
-    public const int TOTAL_TIME_LEVEL3 = 5 * 60;
+    public const int TOTAL_TIME_LEVEL3 = 3 * 60;
     // Level Data 4
     public const string TITLE_LEVEL4 = "Testing Title";
     public const string DESCRIPTION_LEVEL4 = "Some dummy text for testing description";
