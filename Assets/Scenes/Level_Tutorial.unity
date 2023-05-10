@@ -13218,15 +13218,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1749259251739924357, guid: 604210b50e3bf7d4d81c80009530cabb, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.1944926
+      value: 0.19449264
       objectReference: {fileID: 0}
     - target: {fileID: 1749259251739924357, guid: 604210b50e3bf7d4d81c80009530cabb, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.12591198
+      value: 0.125912
       objectReference: {fileID: 0}
     - target: {fileID: 1749259251739924357, guid: 604210b50e3bf7d4d81c80009530cabb, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.02518239
+      value: -0.025182398
       objectReference: {fileID: 0}
     - target: {fileID: 1749259251853789734, guid: 604210b50e3bf7d4d81c80009530cabb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13348,6 +13348,10 @@ PrefabInstance:
       propertyPath: m_YAxis.m_MaxSpeed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1749259253388148930, guid: 604210b50e3bf7d4d81c80009530cabb, type: 3}
+      propertyPath: m_YAxis.m_InvertInput
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1749259253388148931, guid: 604210b50e3bf7d4d81c80009530cabb, type: 3}
       propertyPath: m_Name
       value: Third Person Camera free Look
@@ -13366,7 +13370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1749259253565959423, guid: 604210b50e3bf7d4d81c80009530cabb, type: 3}
       propertyPath: m_CollideAgainst.m_Bits
-      value: 321
+      value: 320
       objectReference: {fileID: 0}
     - target: {fileID: 1749259253580686886, guid: 604210b50e3bf7d4d81c80009530cabb, type: 3}
       propertyPath: m_FollowOffset.y
@@ -16528,7 +16532,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 0.8, z: 0.6}
+  m_Size: {x: 0.8, y: 0.8, z: 0.8}
   m_Center: {x: 0, y: 0.4, z: 0}
 --- !u!1001 &1527642894
 PrefabInstance:
