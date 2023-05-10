@@ -8,8 +8,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
-    <ProjectGuid>{4F16B407-F98C-D38C-BB04-62C6416E433C}</ProjectGuid>
+    <RootNamespace>
+    </RootNamespace>
+    <ProjectGuid>{DFFE448E-564D-BC2B-93BE-9EC0423D29A3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -887,10 +888,7 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.Core">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Cinemachine">
-      <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
-    </Reference>
+    </Reference>   
     <Reference Include="Unity.Services.Core.Analytics">
       <HintPath>Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>
     </Reference>
@@ -914,20 +912,17 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+	</Reference>
+	<Reference Include="Cinemachine">
+		<HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
+	</Reference>
+    <Reference Include="Unity.VisualScripting.State">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{44F1F9AA-E5C7-AFA0-B0BC-B80CE3A80B9E}</Project>
-      <Name>Assembly-CSharp-firstpass</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.AI.Navigation.Samples.csproj">
-      <Project>{84490DFB-7506-13FB-9D01-125396AEF173}</Project>
-      <Name>Unity.AI.Navigation.Samples</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.AI.Navigation.Samples.Editor.csproj">
-      <Project>{B8325E45-A2F2-E20E-F7F1-7EA2A8CA4200}</Project>
-      <Name>Unity.AI.Navigation.Samples.Editor</Name>
+      <Project>{44F1F9AA-E5C7-AFA0-B0BC-B80CE3A80B9E}</Project>          
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
