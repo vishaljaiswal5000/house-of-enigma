@@ -70,7 +70,7 @@ public class Constants
     public const int TOTAL_TIME_LEVEL2 = 5 * 60;
     // Level Data 3
     public const string TITLE_LEVEL3 = "Level 3\n Murder house";
-    public const string DESCRIPTION_LEVEL3 = "Find the clues in the house";
+    public const string DESCRIPTION_LEVEL3 = "Now, you have reached at murder house. Your objective is to look for and gather all vital evidence from different rooms. You must pay attention and keep quit while gathering evidence to avoid being discovered by the agent. If the agent finds you, the mission will not be successful.\nYour time constraint prevents you from gathering all the evidence from various rooms, so you must act quickly and strategically to collect the evidence.\nYour final objective is to collect evidences and reach the exit gate to finish the mission successfully.";
     public const string OBJECTIVES_TITLE_LEVEL3 = "Items Found: {0}/3";
     public const string OBJECTIVES_DESCRIPTION_LEVEL3 = "\n1. Human Brain \n2. Weapon: Gun \n3. Trash bin \n";
     public const int TOTAL_NUMBERS_OF_GAMECLUES_LEVEL3 = 3;
