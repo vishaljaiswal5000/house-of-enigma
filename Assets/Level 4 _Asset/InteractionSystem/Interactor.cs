@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+//using UnityEngine.InputSystem;
 
 
 public class Interactor : MonoBehaviour
@@ -23,10 +23,10 @@ public class Interactor : MonoBehaviour
         {
             var interactable = _colliders[0].GetComponent<IInteractable>();
 
-            if (interactable != null && Keyboard.current.eKey.wasPressedThisFrame)
-            {
-                interactable.Interact(this);
-            }
+            //if (interactable != null && Keyboard.current.eKey.wasPressedThisFrame)
+            //{
+            //    interactable.Interact(this);
+            //}
         }
 
 
